@@ -1,15 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.Volador;
 
+import com.mycompany.Mascotas.Mascota;
 import com.mycompany.Mascotas.Volador;
 
-/**
- *
- * @author eduar
- */
-public class Buho extends Volador{
+public class Buho extends Mascota{
+
+    public Buho(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque) {
+        super(nombreMascota, habilidad, puntosVida, puntosAtaque);
+    }
     
 }

@@ -1,15 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.Insecto;
 
 import com.mycompany.Mascotas.Insecto;
+import com.mycompany.Mascotas.Mascota;
 
-/**
- *
- * @author eduar
- */
-public class Araña extends Insecto{
+public class Araña extends Mascota{
+
+    public Araña(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque) {
+        super(nombreMascota, habilidad, puntosVida, puntosAtaque);
+    }
     
 }

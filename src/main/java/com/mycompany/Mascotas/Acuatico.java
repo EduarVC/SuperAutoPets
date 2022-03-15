@@ -1,5 +1,5 @@
 package com.mycompany.Mascotas;
 
-public class Acuatico extends Mascota{
+public class Acuatico{
     
 }
