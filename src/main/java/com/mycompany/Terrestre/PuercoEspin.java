@@ -5,8 +5,8 @@ import com.mycompany.Mascotas.Terrestre;
 
 public class PuercoEspin extends Mascota{
 
-    public PuercoEspin(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque) {
-        super(nombreMascota, habilidad, puntosVida, puntosAtaque);
+    public PuercoEspin(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
+        super("Puerco Espin", "Espinas-salvajes", 2, 3, 1);
     }
     
 }

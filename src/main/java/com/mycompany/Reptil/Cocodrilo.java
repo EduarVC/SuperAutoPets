@@ -5,8 +5,8 @@ import com.mycompany.Mascotas.Reptil;
 
 public class Cocodrilo extends Mascota{
 
-    public Cocodrilo(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque) {
-        super(nombreMascota, habilidad, puntosVida, puntosAtaque);
+    public Cocodrilo(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
+        super("Cocodrilo", "Mordida", 4, 8, 1);
     }
     
 }

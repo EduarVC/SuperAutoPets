@@ -5,8 +5,8 @@ import com.mycompany.Mascotas.Volador;
 
 public class Mosquito extends Mascota{
 
-    public Mosquito(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque) {
-        super("Mosquito", "Piquete-Inicial", 2, 2);
+    public Mosquito(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
+        super("Mosquito", "Piquete-Inicial", 2, 2, 1);
     }
     
 }

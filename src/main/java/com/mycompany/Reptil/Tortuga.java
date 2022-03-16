@@ -5,8 +5,8 @@ import com.mycompany.Mascotas.Reptil;
 
 public class Tortuga extends Mascota{
 
-    public Tortuga(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque) {
-        super(nombreMascota, habilidad, puntosVida, puntosAtaque);
+    public Tortuga(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia){
+        super("Tortuga", "Proteccion-aliada", 2, 1, 1);
     }
      
 }
