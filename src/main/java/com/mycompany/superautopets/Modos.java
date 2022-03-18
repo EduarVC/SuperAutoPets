@@ -2,7 +2,10 @@ package com.mycompany.superautopets;
 
 public class Modos {
     
-    public static void ModoArena(){
+    public static void ModoArena(){ 
+        Jugador nuevoJugador = new Jugador();
+        nuevoJugador.Jugador();
+        
         
     }
     public static void ModoVersus(){

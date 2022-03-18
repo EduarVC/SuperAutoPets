@@ -2,48 +2,22 @@ package com.mycompany.superautopets;
 
 import java.util.Scanner;
 
-public class Jugador {
+public class Jugador extends Personaje{
 
     static Scanner entrada = new Scanner(System.in);
 
-    int vidaJugador;
-    int monedasOro;
-    String nombreJugador;
-    int cantidadMascotas = 3;
+    private int vidaJugador;
+    private int monedasOro;
+    private String nombreJugador;
+    private String nombreEquipo;
 
-    public String[] Jugador() {
-
-        int turnoTier;
-
+    public void Jugador() {
         System.out.println("Ingrese su Nombre: ");
         nombreJugador = entrada.next();
-//        switch (ronda) {
-//            case 1:
-//                turnoTier = 1;
-//                cantidadMascotas = 
-//                break;
-//            case 2:
-//                turnoTier = 2;
-//                break;
-//            case 4:
-//                turnoTier = 3;
-//                break;
-//            case 6:
-//                turnoTier = 4;
-//                break;
-//            case 8:
-//                turnoTier = 5;
-//                break;
-//            case 10:
-//                turnoTier = 6;
-//                break;
-//            case 12:
-//                turnoTier = 7;
-//        }
-
-        String[] mascotas = new String[cantidadMascotas];
-
-        return mascotas;
+        System.out.println("Ingrese el nombre de su Equipo: ");
+        nombreEquipo = entrada.next();
+        vidaJugador = 10;
+        monedasOro = 10;
     }
 
     public String[] ComprarMascotas() {
@@ -71,6 +45,9 @@ public class Jugador {
         String [] fucionMascotas = new String[cantidadMascotas];
         
         return fucionMascotas;
+    }
+    public int RestarMonedas(int monedasGastadas){
+        return monedasOro -= monedasGastadas;
     }
 
 }
