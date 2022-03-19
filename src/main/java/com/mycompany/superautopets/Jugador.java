@@ -11,11 +11,11 @@ public class Jugador extends Personaje{
     private String nombreJugador;
     private String nombreEquipo;
 
-    public void Jugador() {
-        System.out.println("Ingrese su Nombre: ");
-        nombreJugador = entrada.next();
-        System.out.println("Ingrese el nombre de su Equipo: ");
-        nombreEquipo = entrada.next();
+    public Jugador() {
+//        System.out.println("Ingrese su Nombre: ");
+//        nombreJugador = entrada.next();
+//        System.out.println("Ingrese el nombre de su Equipo: ");
+//        nombreEquipo = entrada.next();
         vidaJugador = 10;
         monedasOro = 10;
     }

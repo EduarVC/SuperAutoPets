@@ -4,9 +4,17 @@ import com.mycompany.Mascotas.Mascota;
 import com.mycompany.Mascotas.Terrestre;
 
 public class Oveja extends Mascota{
-
-    public Oveja(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
-        super("Oveja", "Revolucion", 2, 2, 1);
+    
+    public Oveja(){
+        nombreMascota = "Oveja";
+        habilidad = "Revolucion";
+        puntosAtaque = 2;
+        puntosVida = 2;
+        experiencia = 1;
     }
+
+//    public Oveja(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
+//        super("Oveja", "Revolucion", 2, 2, 1);
+//    }
     
 }

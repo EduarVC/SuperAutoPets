@@ -5,8 +5,15 @@ import com.mycompany.Mascotas.Volador;
 
 public class Pavoreal extends Mascota{
 
-    public Pavoreal(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
-        super("Pavoreal", "Potenciacion", 5, 2, 1);
+    public Pavoreal(){
+        nombreMascota = "Pavoreal";
+        habilidad = "Potenciacion";
+        puntosAtaque = 2;
+        puntosVida = 5;
+        experiencia = 1;
     }
+//    public Pavoreal(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
+//        super("Pavoreal", "Potenciacion", 5, 2, 1);
+//    }
     
 }

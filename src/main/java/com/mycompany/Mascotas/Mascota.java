@@ -13,13 +13,13 @@ public class Mascota {
     protected boolean efecto;
     protected int experiencia;
 
-    public Mascota(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
-        this.nombreMascota = nombreMascota;
-        this.habilidad = habilidad;
-        this.puntosVida = puntosVida;
-        this.puntosAtaque = puntosAtaque;
-        this.experiencia = experiencia;
-    }
+//    public Mascota(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
+//        this.nombreMascota = nombreMascota;
+//        this.habilidad = habilidad;
+//        this.puntosVida = puntosVida;
+//        this.puntosAtaque = puntosAtaque;
+//        this.experiencia = experiencia;
+//    }
 
     public void Atacar() {
 
