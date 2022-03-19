@@ -15,7 +15,13 @@ public class Tier {
     private Mascota mascota;
     private int contador = 1;
     Mascota[] mascotas = new Mascota[5];
-
+    public void imprimirMascotas(Mascota [] mascotas){
+        //se imprimen las mascotas de la tienda
+        for (int i = 0; i < mascotas.length ; i++) {
+            
+        }
+    }
+    //metodo para obtener las mascotas de la tienda solo del tier 1
     public Mascota[] Tier1() {
         while (contador < 4) {
             int numero = (int) (Math.random() * 8 + 1);
@@ -24,7 +30,7 @@ public class Tier {
         }
         return mascotas;
     }
-
+    //metodo para obtener las mascotas de la tienda incluyendo tier 2
     public Mascota[] Tier2() {
         while (contador < 4) {
             int numero = (int) (Math.random() * 16 + 1);
@@ -33,7 +39,7 @@ public class Tier {
         }
         return mascotas;
     }
-
+    //metodo para obtener las mascotas de la tienda incluyendo tier 3
     public Mascota[] Tier3() {
         while (contador < 5) {
             int numero = (int) (Math.random() * 27 + 1);
@@ -42,7 +48,7 @@ public class Tier {
         }
         return mascotas;
     }
-
+    //metodo para obtener las mascotas de la tienda incluyendo tier 4
     public Mascota[] Tier4() {
         while (contador < 5) {
             int numero = (int) (Math.random() * 35 + 1);
@@ -51,7 +57,7 @@ public class Tier {
         }
         return mascotas;
     }
-
+    //metodo para obtener las mascotas de la tienda incluyendo tier 5
     public Mascota[] Tier5() {
         while (contador < 6) {
             int numero = (int) (Math.random() * 43 + 1);
@@ -60,7 +66,7 @@ public class Tier {
         }
         return mascotas;
     }
-
+    //metodo para obtener las mascotas de la tienda incluyendo tier 6
     public Mascota[] Tier6() {
         while (contador < 6) {
             int numero = (int) (Math.random() * 52 + 1);
@@ -69,7 +75,7 @@ public class Tier {
         }
         return mascotas;
     }
-
+    //metodo para obtener las mascotas de la tienda incluyendo tier 7
     public Mascota[] Tier7() {
         while (contador < 6) {
             int numero = (int) (Math.random() * 54 + 1);
@@ -78,7 +84,7 @@ public class Tier {
         }
         return mascotas;
     }
-
+    //metodo para retornar la mascota seleccionada de cada random
     public Mascota mascotaSeleccionaada(int numeroSeleccionado) {
 
         switch (numeroSeleccionado) {

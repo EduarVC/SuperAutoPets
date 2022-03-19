@@ -3,9 +3,10 @@ package com.mycompany.superautopets;
 import com.mycompany.Mascotas.Mascota;
 
 public class Personaje {
-    final protected Mascota [] arregloMascotas = new Mascota[5];
+    protected Mascota [] arregloMascotas = new Mascota[5];
     protected int cantidadVictorias;
     protected int cantidadDerrotas;
+    private Tier mascotasTienda;
     
     public int contadorVictorias(int victorias){
         return cantidadVictorias += victorias;
@@ -17,6 +18,9 @@ public class Personaje {
         
      if(ronda == 1){
          System.out.println("Mascotas del tier 1 desbloqueados...");
+         mascotasTienda.Tier1();
+         
+         
      }else 
          if(ronda == 2 && ronda ==3){
              System.out.println("Mascotas del tier 2 desbloqueados...");
