@@ -10,7 +10,7 @@ public class Quetzal extends Mascota{
         habilidad = "Por nivel";
         puntosAtaque = 10;
         puntosVida = 10;
-        experiencia = 2;
+        experiencia = 1;
     }
 
 //    public Quetzal(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
