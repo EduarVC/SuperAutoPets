@@ -13,14 +13,6 @@ public class Mascota {
     protected boolean efecto;
     protected int experiencia;
 
-//    public Mascota(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
-//        this.nombreMascota = nombreMascota;
-//        this.habilidad = habilidad;
-//        this.puntosVida = puntosVida;
-//        this.puntosAtaque = puntosAtaque;
-//        this.experiencia = experiencia;
-//    }
-
     @Override
     public String toString(){
         return "Nombre: " + nombreMascota +"\nHabilidad: "+ habilidad + "\n Nivel: "+ nivel + "\n Puntos de ataque: "+ puntosAtaque + "\nPuntos de vida: " + puntosVida + "Experiencia: " + experiencia;

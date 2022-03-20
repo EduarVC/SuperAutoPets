@@ -3,7 +3,7 @@ package com.mycompany.Campo;
 
 public class Campo {
     
-    private String nombreCampo;
+    protected String nombreCampo;
     
     public void AplicarEfectosCampo(){
         
