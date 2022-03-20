@@ -21,6 +21,10 @@ public class Mascota {
 //        this.experiencia = experiencia;
 //    }
 
+    @Override
+    public String toString(){
+        return "Nombre: " + nombreMascota +"\nHabilidad: "+ habilidad + "\n Nivel: "+ nivel + "\n Puntos de ataque: "+ puntosAtaque + "\nPuntos de vida: " + puntosVida + "Experiencia: " + experiencia;
+    }
     public void Atacar() {
 
     }

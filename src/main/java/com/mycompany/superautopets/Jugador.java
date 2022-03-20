@@ -1,5 +1,6 @@
 package com.mycompany.superautopets;
 
+import com.mycompany.Mascotas.Mascota;
 import java.util.Scanner;
 
 public class Jugador extends Personaje{
@@ -18,12 +19,19 @@ public class Jugador extends Personaje{
 //        nombreEquipo = entrada.next();
         vidaJugador = 10;
         monedasOro = 10;
+        cantidadDerrotas = 0;
+        cantidadVictorias = 0;
+        
+    }
+    
+    public void ImprimirDatosJugador(){
+        System.out.println("");
     }
 
-    public String[] ComprarMascotas() {
-        String[] mascotasCompradas = new String[cantidadMascotas];
+    public Mascota[] ComprarMascotas(Mascota[] mascotasTienda) {
+       // String[] mascotasCompradas = new String[cantidadMascotas];
         
-        return mascotasCompradas;
+        return arregloMascotas;
     }
 
     public String[] ComprarAlimentops() {

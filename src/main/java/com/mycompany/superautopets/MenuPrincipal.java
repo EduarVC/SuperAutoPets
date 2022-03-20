@@ -1,6 +1,5 @@
 package com.mycompany.superautopets;
 
-import static com.mycompany.superautopets.Modos.ModoArena;
 import static com.mycompany.superautopets.Modos.ModoCreativo;
 import static com.mycompany.superautopets.Modos.ModoVersus;
 import static com.mycompany.superautopets.Reportes.Reportes;
@@ -53,7 +52,8 @@ public class MenuPrincipal {
 
         switch (opcion) {
             case 1:
-                ModoArena();
+                Modos modoArena = new Modos();
+                modoArena.ModoArena();
                 break;
             case 2:
                 ModoVersus();

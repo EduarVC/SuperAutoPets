@@ -14,78 +14,63 @@ public class Tier {
 
     private Mascota mascota;
     private int contador = 1;
-    Mascota[] mascotas = new Mascota[5];
-    public void imprimirMascotas(Mascota [] mascotas){
+    private Mascota mascotas;
+
+    public Tier() {
+        this.mascotas = new Mascota();
+    }
+
+    public void imprimirMascotas(Mascota[] mascotas) {
         //se imprimen las mascotas de la tienda
-        for (int i = 0; i < mascotas.length ; i++) {
-            
+        for (int i = 0; i < mascotas.length; i++) {
+
         }
     }
+
     //metodo para obtener las mascotas de la tienda solo del tier 1
-    public Mascota[] Tier1() {
-        while (contador < 4) {
-            int numero = (int) (Math.random() * 8 + 1);
-            mascotas[contador - 1] = mascotaSeleccionaada(numero);
-            contador++;
-        }
-        return mascotas;
+    public Mascota Tier1() {
+        int numero = (int) (Math.random() * 8 + 1);
+        return mascotas = mascotaSeleccionada(numero);
     }
+
     //metodo para obtener las mascotas de la tienda incluyendo tier 2
-    public Mascota[] Tier2() {
-        while (contador < 4) {
-            int numero = (int) (Math.random() * 16 + 1);
-            mascotas[contador - 1] = mascotaSeleccionaada(numero);
-            contador++;
-        }
-        return mascotas;
+    public Mascota Tier2() {
+        int numero = (int) (Math.random() * 16 + 1);
+        return mascotas = mascotaSeleccionada(numero);
     }
+
     //metodo para obtener las mascotas de la tienda incluyendo tier 3
-    public Mascota[] Tier3() {
-        while (contador < 5) {
-            int numero = (int) (Math.random() * 27 + 1);
-            mascotas[contador - 1] = mascotaSeleccionaada(numero);
-            contador++;
-        }
-        return mascotas;
+    public Mascota Tier3() {
+        int numero = (int) (Math.random() * 27 + 1);
+        return mascotas = mascotaSeleccionada(numero);
     }
+
     //metodo para obtener las mascotas de la tienda incluyendo tier 4
-    public Mascota[] Tier4() {
-        while (contador < 5) {
-            int numero = (int) (Math.random() * 35 + 1);
-            mascotas[contador - 1] = mascotaSeleccionaada(numero);
-            contador++;
-        }
-        return mascotas;
+    public Mascota Tier4() {
+        int numero = (int) (Math.random() * 35 + 1);
+        return mascotas = mascotaSeleccionada(numero);
     }
+
     //metodo para obtener las mascotas de la tienda incluyendo tier 5
-    public Mascota[] Tier5() {
-        while (contador < 6) {
-            int numero = (int) (Math.random() * 43 + 1);
-            mascotas[contador - 1] = mascotaSeleccionaada(numero);
-            contador++;
-        }
-        return mascotas;
+    public Mascota Tier5() {
+        int numero = (int) (Math.random() * 43 + 1);
+        return mascotas = mascotaSeleccionada(numero);
     }
+
     //metodo para obtener las mascotas de la tienda incluyendo tier 6
-    public Mascota[] Tier6() {
-        while (contador < 6) {
+    public Mascota Tier6() {
             int numero = (int) (Math.random() * 52 + 1);
-            mascotas[contador - 1] = mascotaSeleccionaada(numero);
-            contador++;
-        }
-        return mascotas;
+        return mascotas = mascotaSeleccionada(numero);
     }
+
     //metodo para obtener las mascotas de la tienda incluyendo tier 7
-    public Mascota[] Tier7() {
-        while (contador < 6) {
+    public Mascota Tier7() {
             int numero = (int) (Math.random() * 54 + 1);
-            mascotas[contador - 1] = mascotaSeleccionaada(numero);
-            contador++;
-        }
-        return mascotas;
+        return mascotas = mascotaSeleccionada(numero);
     }
+
     //metodo para retornar la mascota seleccionada de cada random
-    public Mascota mascotaSeleccionaada(int numeroSeleccionado) {
+    public Mascota mascotaSeleccionada(int numeroSeleccionado) {
 
         switch (numeroSeleccionado) {
             case 1 -> {

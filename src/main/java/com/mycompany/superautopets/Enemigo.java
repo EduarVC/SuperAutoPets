@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.superautopets;
 
-/**
- *
- * @author eduar
- */
-public class Enemigo {
+public class Enemigo extends Personaje{
     
 }

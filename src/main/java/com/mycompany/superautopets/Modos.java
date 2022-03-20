@@ -2,14 +2,13 @@ package com.mycompany.superautopets;
 
 public class Modos {
 
-    private Jugador nuevoJugador;
+    private Jugador jugador;
     
     public Modos(){
-        nuevoJugador = new Jugador();
+        jugador = new Jugador();
     }
-    public static void ModoArena() {
-
-
+    public void ModoArena() {
+        
     }
 
     public static void ModoVersus() {
@@ -18,5 +17,9 @@ public class Modos {
 
     public static void ModoCreativo() {
 
+    }
+    public Enemigo crearEnemigo(){
+        
+        return new Enemigo();
     }
 }
