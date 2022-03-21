@@ -39,20 +39,25 @@ public class Jugador extends Personaje {
     public Mascota[] ComprarMascotas(Mascota[] mascotasTienda) {
         int opcion;
 
-        while (monedasOro > 0) {
-            System.out.println("\nTienes: " + monedasOro + " monedas de oro");
+        while (monedasOro > 2) {
+            System.out.println("Tienes: " + monedasOro + " monedas de oro");
             System.out.println("Elija la Mascota que desee comprar:");
             opcion = entrada.nextInt();
 
             for (int i = 0; i < mascotasObtenidas.length; i++) {
                 if (mascotasObtenidas[i] == espacioLibre) {
                     mascotasObtenidas[i] = mascotasTienda[opcion-1];
-                    System.out.println("Mascota Obtenida");
+                    System.out.println("Mascota Obtenida\n");
                     monedasOro -= 3;
                     break;
                 }
-            }
+            } 
         }
+        System.out.println("_____________________________");
+        System.out.println("Mascotas de tu equipo: ");
+         for (int i = 0; i < mascotasObtenidas.length; i++) {
+                System.out.println("Mascota "+(i+1) + "\n" + mascotasObtenidas[i]);
+            }
 
         return mascotasObtenidas;
     }
