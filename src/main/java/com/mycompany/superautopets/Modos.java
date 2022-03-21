@@ -29,6 +29,7 @@ public class Modos {
     public void ModoArena() {
         System.out.println("\nModo Arena\n");
         campo = obtenerCampo();
+       
         int accion = new MenuEntreClases().MenuEntreClases(ronda);
         if(accion == 1){
             if(ronda == 1){    
@@ -37,7 +38,8 @@ public class Modos {
             }else {
                 System.out.println("\nTienda de Mascotas");
             }
-                jugador.ComprarMascotas(nuevaTienda.mascotasTienda(ronda));
+                mascotasJugador = jugador.ComprarMascotas(nuevaTienda.mascotasTienda(ronda));
+                
 
         }
     }
