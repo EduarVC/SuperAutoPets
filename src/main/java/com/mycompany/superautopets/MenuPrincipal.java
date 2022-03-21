@@ -17,7 +17,7 @@ public class MenuPrincipal {
         System.out.println("1- Elegir Modo de Juego");
         System.out.println("2- Reportes");
         System.out.println("3- Salir del Juego");
-        System.out.println("\n Elija una opcion: ");
+        System.out.println("Elija una opcion: ");
         opcion = entrada.nextInt();
 
         switch (opcion) {
@@ -41,6 +41,7 @@ public class MenuPrincipal {
     public static void modoJuego() {
 
         int opcion;
+        Modos tipoModo = new Modos();
 
         System.out.println("\nModos de Juego");
         System.out.println("\n1- Modo Arena");
@@ -52,8 +53,7 @@ public class MenuPrincipal {
 
         switch (opcion) {
             case 1:
-                Modos modoArena = new Modos();
-                modoArena.ModoArena();
+                tipoModo.ModoArena();
                 break;
             case 2:
                 ModoVersus();

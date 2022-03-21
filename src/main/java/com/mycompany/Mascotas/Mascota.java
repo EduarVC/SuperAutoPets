@@ -15,8 +15,9 @@ public class Mascota {
 
     @Override
     public String toString(){
-        return "Nombre: " + nombreMascota +"\nHabilidad: "+ habilidad + "\n Nivel: "+ nivel + "\n Puntos de ataque: "+ puntosAtaque + "\nPuntos de vida: " + puntosVida + "Experiencia: " + experiencia;
+        return "Nombre: " + nombreMascota +"\nHabilidad: "+ habilidad + "\nNivel: "+ nivel + "\nPuntos de ataque: "+ puntosAtaque + "\nPuntos de vida: " + puntosVida + "\nExperiencia: " + experiencia + "\n";
     }
+    
     public void Atacar() {
 
     }

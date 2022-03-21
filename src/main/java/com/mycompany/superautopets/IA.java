@@ -1,5 +1,5 @@
 package com.mycompany.superautopets;
 
-public class Enemigo extends Personaje{
+public class IA extends Personaje{
     
 }
