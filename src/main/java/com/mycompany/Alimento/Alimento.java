@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.Alimento;
 
 public class Alimento {
-    private String nombreAlimento;
-    
-    public void AplicarEfectoAlimento(){
-        
+
+    protected String nombreAlimento;
+    protected String descripccion;
+    protected boolean tipoEfecto;
+
+    public String ToString() {
+        String efecto;
+        if (tipoEfecto == true) {
+            return "Nombre: " + nombreAlimento + "\nDescripcción: " + descripccion + "\nEs de Tipo Efecto";
+        } else {
+            return "Nombre: " + nombreAlimento + "\nDescripcción: " + descripccion;
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.mycompany.superautopets;
 
 import com.mycompany.Acuatico.*;
+import com.mycompany.Alimento.*;
 import com.mycompany.Domestico.*;
 import com.mycompany.Insecto.*;
 import com.mycompany.Mamifero.*;
@@ -13,9 +14,10 @@ import com.mycompany.Volador.*;
 public class Tier {
 
     private Mascota mascota;
+    private Alimento alimento;
 
     public Tier() {
-        this.mascota = new Mascota(); 
+        this.mascota = new Mascota();
     }
 
     //metodo para obtener las mascotas de la tienda solo del tier 1
@@ -50,14 +52,56 @@ public class Tier {
 
     //metodo para obtener las mascotas de la tienda incluyendo tier 6
     public Mascota Tier6() {
-            int numero = (int) (Math.random() * 52 + 1);
+        int numero = (int) (Math.random() * 52 + 1);
         return mascota = mascotaSeleccionada(numero);
     }
 
     //metodo para obtener las mascotas de la tienda incluyendo tier 7
     public Mascota Tier7() {
-            int numero = (int) (Math.random() * 54 + 1);
+        int numero = (int) (Math.random() * 54 + 1);
         return mascota = mascotaSeleccionada(numero);
+    }
+
+    //metodo para obtener los alimentos de la tienda solo del tier 1
+    public Alimento tier1() {
+        int numero = (int) (Math.random() * 3 + 1);
+        return alimento = alimentoSeleccionado(numero);
+    }
+
+    //metodo para obtener los alimentos de la tienda incluyendo tier 2
+    public Alimento tier2() {
+        int numero = (int) (Math.random() * 6 + 1);
+        return alimento = alimentoSeleccionado(numero);
+    }
+    //metodo para obtener los alimentos de la tienda incluyendo tier 3
+
+    public Alimento tier3() {
+        int numero = (int) (Math.random() * 10 + 1);
+        return alimento = alimentoSeleccionado(numero);
+    }
+    //metodo para obtener los alimentos de la tienda incluyendo tier 4
+
+    public Alimento tier4() {
+        int numero = (int) (Math.random() * 13 + 1);
+        return alimento = alimentoSeleccionado(numero);
+    }
+    //metodo para obtener los alimentos de la tienda incluyendo tier 5
+
+    public Alimento tier5() {
+        int numero = (int) (Math.random() * 15 + 1);
+        return alimento = alimentoSeleccionado(numero);
+    }
+    //metodo para obtener los alimentos de la tienda incluyendo tier 6
+
+    public Alimento tier6() {
+        int numero = (int) (Math.random() * 17 + 1);
+        return alimento = alimentoSeleccionado(numero);
+    }
+    //metodo para obtener los alimentos de la tienda incluyendo tier 7
+
+    public Alimento tier7() {
+        int numero = (int) (Math.random() * 18 + 1);
+        return alimento = alimentoSeleccionado(numero);
     }
 
     //metodo para retornar la mascota seleccionada de cada random
@@ -228,5 +272,48 @@ public class Tier {
             }
         }
         return mascota;
+    }
+    //metodo para obtener el alimento seleccionado aleatoriamente 
+    public Alimento alimentoSeleccionado(int numeroSeleccionado) {
+
+        switch (numeroSeleccionado) {
+            case 1:
+                alimento = new Manzana();
+            case 2:
+                alimento = new Naranja();
+            case 3:
+                alimento = new Miel();
+            case 4:
+                alimento = new Pastelillo();
+            case 5:
+                alimento = new HuesoDeCarne();
+            case 6:
+                alimento = new PastillaParaDormir();
+            case 7:
+                alimento = new Ajo();
+            case 8:
+                alimento = new Ensalada();
+            case 9:
+                alimento = new ComidaEnlatada();
+            case 10:
+                alimento = new Pera();
+            case 11:
+                alimento = new Chile();
+            case 12:
+                alimento = new Chocolate();
+            case 13:
+                alimento = new Sushi();
+            case 14:
+                alimento = new Melon();
+            case 15:
+                alimento = new Hongo();
+            case 16:
+                alimento = new Pizza();
+            case 17:
+                alimento = new Carne();
+            case 18:
+                alimento = new Gelatina();
+        }
+        return alimento;
     }
 }
