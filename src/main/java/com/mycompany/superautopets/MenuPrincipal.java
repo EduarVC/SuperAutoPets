@@ -13,7 +13,8 @@ public class MenuPrincipal {
 
         int opcion;
 
-        System.out.println("Menu Principal\n");
+        System.out.println("");
+        System.out.println("Menu Principal");
         System.out.println("1- Elegir Modo de Juego");
         System.out.println("2- Reportes");
         System.out.println("3- Salir del Juego");

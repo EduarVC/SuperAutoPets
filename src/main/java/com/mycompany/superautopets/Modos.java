@@ -17,7 +17,7 @@ public class Modos {
     private Campo campo;
     private int ronda = 1;
     private Tienda nuevaTienda = new Tienda();
-    private Mascota[] mascotasTienda;
+    protected Mascota[] mascotasTienda;
     private Mascota[] mascotasJugador;
     
     //constructor de la clase
@@ -27,10 +27,13 @@ public class Modos {
     }
     //se inicia el modo arrena
     public void ModoArena() {
+        int accion;
+    
         System.out.println("\nModo Arena\n");
         campo = obtenerCampo();
        
-        int accion = new MenuEntreClases().MenuEntreClases(ronda);
+       do{
+        accion = new MenuEntreClases().MenuEntreClases(ronda);
         if(accion == 1){
             if(ronda == 1){    
             System.out.println("\nBienvenido a la tienda de mascotas");
@@ -38,11 +41,13 @@ public class Modos {
             }else {
                 System.out.println("\nTienda de Mascotas");
             }
-                mascotasJugador = jugador.ComprarMascotas(nuevaTienda.mascotasTienda(ronda));
+                mascotasTienda = nuevaTienda.mascotasTienda(ronda);
+                mascotasJugador = jugador.ComprarMascotas(mascotasTienda);
                 
 
         }
-    }
+       }while(accion != 6);
+       }
 
     public static void ModoVersus() {
         
