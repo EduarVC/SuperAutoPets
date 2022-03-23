@@ -7,8 +7,8 @@ public class Mascota {
     protected String habilidad;
     protected String tipoMascota;
     protected int nivel;
-    protected int puntosVida;
-    protected int puntosAtaque;
+    public int puntosVida;
+    public int puntosAtaque;
     protected int dañoRecivido;
     protected boolean efecto;
     protected int experiencia;
