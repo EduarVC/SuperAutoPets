@@ -1,5 +1,6 @@
 package com.mycompany.superautopets;
 
+import com.mycompany.Alimento.Alimento;
 import com.mycompany.Campo.Bosque;
 import com.mycompany.Campo.Campo;
 import com.mycompany.Campo.Granja;
@@ -14,16 +15,22 @@ import java.util.Scanner;
 public class Modos {
 
     private Jugador jugador;
+    private IA enemigo;
+    private Mascota[] mascotasIA;
     private Campo campo;
-    private int ronda = 1;
-    private Tienda nuevaTienda = new Tienda();
+    private int ronda;
+    private Tienda nuevaTienda;
     protected Mascota[] mascotasTienda;
     private Mascota[] mascotasJugador;
+    private Alimento[] nuevoAlimento;
 
     //constructor de la clase
     public Modos() {
         jugador = new Jugador();
+        enemigo = new IA();
         campo = new Campo();
+        ronda = 1;
+        nuevaTienda = new Tienda();
     }
 
     //se inicia el modo arrena
@@ -33,6 +40,7 @@ public class Modos {
         System.out.println("\nModo Arena\n");
         campo = obtenerCampo();
         mascotasTienda = nuevaTienda.mascotasTienda(ronda);
+        nuevoAlimento = nuevaTienda.alimentosTienda(ronda);
         do {
             accion = new MenuEntreClases().MenuEntreClases(ronda);
             if (accion == 1) {
@@ -47,8 +55,21 @@ public class Modos {
                     System.out.println(mascotasTienda[i]);
                 }
                 mascotasJugador = jugador.ComprarMascotas(mascotasTienda);
+            } else if (accion == 2) {
+
+                System.out.println("\nAlimentos disponibles: ");
+                for (int i = 0; i < nuevoAlimento.length; i++) {
+                    System.out.println(String.format("Alimento %d", (i + 1)));
+                    System.out.println(nuevoAlimento[i]);
+                }
+            } else if(accion == 3){
+                System.out.println("_________________________________");
+                System.out.println("\nOrdene sus mascotas como desee.");
+                mascotasJugador = jugador.OrdenarMascotas(mascotasJugador);
             }
         } while (accion != 6);
+        mascotasIA = enemigo.obtenreMascotasIA(ronda);
+        enemigo.ImprimirMascotasIA(mascotasIA);
     }
 
     public static void ModoVersus() {

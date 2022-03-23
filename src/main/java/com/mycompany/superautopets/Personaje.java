@@ -7,6 +7,8 @@ public class Personaje {
 
     protected Mascota[] arregloMascotas;
     protected Mascota[] mascotasObtenidas = new Mascota[5];
+    protected Mascota espacioLibre;
+    protected boolean espacioDisponible;
     protected int cantidadVictorias;
     protected int cantidadDerrotas;
     private Tier mascotasTienda = new Tier();

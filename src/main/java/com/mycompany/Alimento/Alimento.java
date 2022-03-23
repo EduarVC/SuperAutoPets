@@ -6,7 +6,8 @@ public class Alimento {
     protected String descripccion;
     protected boolean tipoEfecto;
 
-    public String ToString() {
+    @Override
+    public String toString(){
         String efecto;
         if (tipoEfecto == true) {
             return "Nombre: " + nombreAlimento + "\nDescripcción: " + descripccion + "\nEs de Tipo Efecto";

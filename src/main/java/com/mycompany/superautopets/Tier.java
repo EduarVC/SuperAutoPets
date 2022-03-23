@@ -279,40 +279,58 @@ public class Tier {
         switch (numeroSeleccionado) {
             case 1:
                 alimento = new Manzana();
+                break;
             case 2:
                 alimento = new Naranja();
+                break;
             case 3:
                 alimento = new Miel();
+                break;
             case 4:
                 alimento = new Pastelillo();
+                break;
             case 5:
                 alimento = new HuesoDeCarne();
+                break;
             case 6:
                 alimento = new PastillaParaDormir();
+                break;
             case 7:
                 alimento = new Ajo();
+                break;
             case 8:
                 alimento = new Ensalada();
+                break;
             case 9:
                 alimento = new ComidaEnlatada();
+                break;
             case 10:
                 alimento = new Pera();
+                break;
             case 11:
                 alimento = new Chile();
+                break;
             case 12:
                 alimento = new Chocolate();
+                break;
             case 13:
                 alimento = new Sushi();
+                break;
             case 14:
                 alimento = new Melon();
+                break;
             case 15:
                 alimento = new Hongo();
+                break;
             case 16:
                 alimento = new Pizza();
+                break;
             case 17:
                 alimento = new Carne();
+                break;
             case 18:
                 alimento = new Gelatina();
+                break;
         }
         return alimento;
     }

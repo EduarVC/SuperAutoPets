@@ -11,8 +11,6 @@ public class Jugador extends Personaje {
 
     protected int vidaJugador;
     private int monedasOro;
-    private Mascota espacioLibre;
-    private boolean espacioDisponible;
 
     public Jugador() {
 
@@ -108,6 +106,7 @@ public class Jugador extends Personaje {
     //Metodo para comprar Alimento
     public Alimento[] ComprarAlimentos(Alimento[] alimentosTienda, Mascota[] mascotasEquipo) {
         int opcion;
+        System.out.println("\nAlimentos");
 
         return alimentosTienda;
     }
@@ -117,11 +116,44 @@ public class Jugador extends Personaje {
 
         return ventaMacotas;
     }
+    //metodo para ordenar las mascotas del jugador
+    public Mascota[] OrdenarMascotas(Mascota[] mascotasOrdenadas) {
+        int posicionMascotaMover;
+        int posicionMascotaMovida;
+        Mascota mascotaMovida;
+        
+        System.out.println("Orden actual de sus mascotas\n");
+        for (int i = 0; i < mascotasOrdenadas.length; i++) {
+            System.out.println("Mascota " + (i + 1));
+            System.out.println(mascotasOrdenadas[i]);
+        }
 
-    public String[] OrdenarMascotas() {
-        String[] ordenMascotas = new String[cantidadMascotas];
+        do {
+            System.out.println("\nIngrese el numero de la mascota que desee mover: ");
+            posicionMascotaMover = entrada.nextInt();
+            System.out.println("Ingrese el numero de la posicion al que lo quiere mover  (Recuerde que las posiciones son de 1 a 5): ");
+            posicionMascotaMovida = entrada.nextInt();
+            if(posicionMascotaMover > 0 && posicionMascotaMover < 6 && posicionMascotaMovida >0 && posicionMascotaMovida <6){
+            mascotaMovida = mascotasOrdenadas[posicionMascotaMovida-1];
+            mascotasOrdenadas[posicionMascotaMovida-1] = mascotasOrdenadas[posicionMascotaMover-1];
+            mascotasOrdenadas[posicionMascotaMover-1] = mascotaMovida;
+            System.out.println("\nMascota movida exitosamente");
+            System.out.println("_____________________________");
+            System.out.println("Orden actual de tus mascotas");
+            for (int i = 0; i < mascotasOrdenadas.length; i++) {
+                System.out.println("Mascota " + (i + 1));
+                System.out.println(mascotasOrdenadas[i]);
+            }
+            System.out.println("Preciona Enter para segir ordenando las macotas.");
+            System.out.println("1. Regresar al menú anterior.");
+            entrada.nextLine();
+            }else {
+                System.out.println("\nPosición no encotrada.");
+            }
 
-        return ordenMascotas;
+        } while (!"1".equals(entrada.nextLine()));
+
+        return mascotasOrdenadas;
     }
 
     public String[] FucionarMascotas() {

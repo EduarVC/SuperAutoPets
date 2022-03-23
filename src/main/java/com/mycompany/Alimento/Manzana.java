@@ -4,7 +4,6 @@ import com.mycompany.Mascotas.Mascota;
 import java.util.Scanner;
 
 public class Manzana extends Alimento{
-    private Mascota mascotaSeleccionada;
     public Manzana(){
         nombreAlimento = "Manzana";
         descripccion = "Da 1 de vida y 1 de daño a un animal seleccionado.";
