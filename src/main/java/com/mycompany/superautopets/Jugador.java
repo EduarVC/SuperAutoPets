@@ -75,6 +75,7 @@ public class Jugador extends Personaje {
             } else {
                 if (mascotasTienda[opcion - 1] == espacioLibre) {
                     System.out.println("\nLa mascota seleccionada ya fue comprada, Intente de nuevo.\n");
+                    espacioDisponible = true;
                 } else {
 
                     //Se verifica que el jugador tenga un espacio libre en su equipo para poder comprar la mascota
@@ -235,34 +236,119 @@ public class Jugador extends Personaje {
 
     public Mascota[] FucionarMascotas(Mascota[] mascotasTienda, Mascota[] mascotasJugador) {
         Mascota fucion = new Mascota();
+        Mascota nivel = new Mascota();
+        Mascota aumentarPuntos = new Mascota();
+        Modos mascotaTienda = new Modos();
         int posicionMascotaTienda;
         int posicionMascotaJugador;
+        int posicionMascotaJugador2;
+        int opcion;
 
         System.out.println("________________________________________________");
         System.out.println("\nFucione sus mascotas para subirlos de nivel.");
 
-        ImprimirDatosJugador(mascotasJugador);
-        datosTienda.ImprimirMascotasTienda(mascotasTienda);
-        do {
-            System.out.println(String.format("\nTiene %d monedas de Oro", monedasOro));
-            System.out.println("Ingrese la posicion de la mascota de la tienda que desee Fucionar: ");
-            posicionMascotaTienda = entrada.nextInt();
-            System.out.println("Ingrese la posicion de la mascota de su equipo que desee Fucionar: ");
-            posicionMascotaJugador = entrada.nextInt();
+        System.out.println("1. Fucionar mascotas del equipo");
+        System.out.println("2. Comprar mascota para fucionarla con una mascota del equipo.");
+        System.out.println("Elija una opcion: ");
+        opcion = entrada.nextInt();
 
-            if (posicionMascotaJugador - 1 >= 0 && posicionMascotaJugador - 1 < mascotasJugador.length && posicionMascotaTienda - 1 >= 0 && posicionMascotaTienda - 1 < mascotasTienda.length) {
-
-                if (mascotasJugador[posicionMascotaJugador - 1] == mascotasTienda[posicionMascotaTienda - 1]) {
-                    if (mascotasJugador[posicionMascotaJugador - 1].nivel <= 3) {
-                        System.out.println("\nMascota Fucionada Exitosamente.");
-                        fucion.Fusionarse(1);
-                        //falta aca
-                    }else{
-                        
+        if (opcion == 1) {
+            ImprimirDatosJugador(mascotasJugador);
+            do {
+                System.out.println("\nIngrese la posicion de la mascotas que desea fucionar: ");
+                posicionMascotaJugador = entrada.nextInt();
+                System.out.println("Ingrese la posicion de la mascota con la que la desea fucionar: ");
+                posicionMascotaJugador2 = entrada.nextInt();
+                if (posicionMascotaJugador == posicionMascotaJugador2) {
+                    System.out.println("\nNo se pude fuciona la mascota debido a que seleccino la misma.");
+                    System.out.println("Presione Enter para contuciar fucionando.");
+                    System.out.println("Ingrese 1 para regresar al menú anterior.");
+                    entrada.nextLine();
+                } else {
+                    if (posicionMascotaJugador - 1 >= 0 && posicionMascotaJugador - 1 < mascotasJugador.length && posicionMascotaJugador2 - 1 >= 0 && posicionMascotaJugador2 - 1 < mascotasJugador.length) {
+                        if (mascotasJugador[posicionMascotaJugador - 1].nombreMascota.equals(mascotasJugador[posicionMascotaJugador2 - 1].nombreMascota)) {
+                            if (mascotasJugador[posicionMascotaJugador - 1].nivel < 3 && mascotasJugador[posicionMascotaJugador2 - 1].nivel < 3) {
+                                System.out.println("\nMascota Fucionada Exitosamente.");
+                                mascotasJugador[posicionMascotaJugador2-1].establecerNivelMascota(fucion.Fusionarse(1));
+                                mascotasJugador[posicionMascotaJugador2-1].aumentarVida(1);
+                                mascotasJugador[posicionMascotaJugador2-1].aumentarAtaque(1);
+                                mascotasJugador[posicionMascotaJugador - 1] = espacioLibre;
+                                ImprimirDatosJugador(mascotasJugador);
+                                System.out.println("\nPrecione Enter para continuar fucionando.");
+                                System.out.println("Ingrese 1 para regresra al menú anterior.");
+                            } else {
+                                System.out.println("Una de las mascotas ya esta a nivel maximo.");
+                                System.out.println("Precione Enter para continuar fucionando.");
+                                System.out.println("Ingrese 1 para regresar al menú anterior.");
+                                entrada.nextLine();
+                            }
+                        } else {
+                            System.out.println("\nLas mascotas seleccionadas no son iguales, por lo tanto no se pueden fucionar.");
+                            System.out.println("Precione Enter para continuar fucionando.");
+                            System.out.println("Ingrese 1 para regresar al menú anterior.");
+                            entrada.nextLine();
+                        }
+                    } else {
+                        System.out.println("\nPosicion incorrecta.");
+                        System.out.println("Precione Enter para continuar fucionando.");
+                        System.out.println("Ingrese 1 para regresar al menú anterior.");
+                        entrada.nextLine();
                     }
                 }
+            } while (!"1".equals(entrada.nextLine()));
+
+        } else if (opcion == 2 && monedasOro > 2) {
+            ImprimirDatosJugador(mascotasJugador);
+            datosTienda.ImprimirMascotasTienda(mascotasTienda);
+            do {
+                System.out.println(String.format("\nTiene %d monedas de Oro", monedasOro));
+                System.out.println("Ingrese la posicion de la mascota de la tienda que desee Fucionar: ");
+                posicionMascotaTienda = entrada.nextInt();
+                System.out.println("Ingrese la posicion de la mascota de su equipo que desee Fucionar: ");
+                posicionMascotaJugador = entrada.nextInt();
+
+                if (posicionMascotaJugador - 1 >= 0 && posicionMascotaJugador - 1 < mascotasJugador.length && posicionMascotaTienda - 1 >= 0 && posicionMascotaTienda - 1 < mascotasTienda.length) {
+
+                    if (mascotasJugador[posicionMascotaJugador - 1].nombreMascota.equals(mascotasTienda[posicionMascotaTienda - 1].nombreMascota)) {
+                        if (mascotasJugador[posicionMascotaJugador - 1].nivel < 3) {
+                            System.out.println("\nMascota Fucionada Exitosamente.");
+                            RestarMonedas(3);
+                            mascotasJugador[posicionMascotaJugador-1].establecerNivelMascota(fucion.Fusionarse(1));
+                            mascotasJugador[posicionMascotaJugador-1].aumentarVida(1);
+                            mascotasJugador[posicionMascotaJugador-1].aumentarAtaque(1);
+                            mascotasTienda[posicionMascotaTienda-1] = espacioLibre;
+                            mascotaTienda.mascotasTienda =mascotasTienda;
+                            System.out.println("Precione Enter para continuar fucionando.");
+                            System.out.println("Ingrese 1 para regresar al menú anterior.");
+                            entrada.nextLine();
+                        } else {
+                            System.out.println("\nLa mascota seleccionada esta a nivel Maximo.");
+                            System.out.println("Precione Enter para continuar fucionando.");
+                            System.out.println("Ingrese 1 para regresar al menú anterior.");
+                            entrada.nextLine();
+                        }
+                    } else {
+                        System.out.println("\nLas mascotas seleccionadas no son iguales, por lo tanto no se pueden fucionar.");
+                        System.out.println("Precione Enter para Continuar.");
+                        System.out.println("Ingrese 1 para regresar al menú anterior.");
+                        entrada.nextLine();
+                    }
+                } else {
+                    System.out.println("\nPosicion incorrecta.");
+                    System.out.println("Precione Enter para continuar fucionando.");
+                    System.out.println("Ingrese 1 para regresar al menú anterior.");
+                    entrada.nextLine();
+                }
+            } while (monedasOro > 2 && !"1".equals(entrada.nextLine()));
+            if (monedasOro < 3) {
+                System.out.println(String.format("Tienes %d monedas de oro, no tienes suficientes monedas para seguir comprando mascotas.", monedasOro));
+                System.out.println("Precione Enter para continuar fucionando.");
+                entrada.nextLine();
+                ImprimirDatosJugador(mascotasJugador);
+            } else {
+                ImprimirDatosJugador(mascotasJugador);
             }
-        } while (monedasOro > 2);
+        }
         return mascotasJugador;
     }
 

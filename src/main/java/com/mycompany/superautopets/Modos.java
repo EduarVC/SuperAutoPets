@@ -63,7 +63,7 @@ public class Modos {
                 System.out.println("\nOrdene sus mascotas como desee.");
                 mascotasJugador = jugador.OrdenarMascotas(mascotasJugador);
             } else if (accion == 4) {
-                
+                mascotasJugador = jugador.FucionarMascotas(mascotasTienda, mascotasJugador);
             } else if (accion == 5) {
                 System.out.println("_________________________________");
                 System.out.println("\nVenda la mascota que desees y obtenga monedas de oro segun el nivel de su mascota");

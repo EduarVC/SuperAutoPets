@@ -3,7 +3,7 @@ package com.mycompany.Mascotas;
 public class Mascota {
 
     //Atributos generales
-    protected String nombreMascota;
+    public String nombreMascota;
     protected String habilidad;
     protected String tipoMascota;
     public int cantidadFusionados;
@@ -24,6 +24,7 @@ public class Mascota {
     }
 
     public int Fusionarse(int cantidadMascotasFucionadas) {
+        
         return cantidadFusionados += cantidadMascotasFucionadas;
     }
 
