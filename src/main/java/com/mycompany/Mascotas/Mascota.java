@@ -6,7 +6,8 @@ public class Mascota {
     protected String nombreMascota;
     protected String habilidad;
     protected String tipoMascota;
-    protected int nivel;
+    public int cantidadFusionados;
+    public int nivel;
     public int puntosVida;
     public int puntosAtaque;
     protected int dañoRecivido;
@@ -22,19 +23,39 @@ public class Mascota {
 
     }
 
-    public void Fusionarse() {
-
+    public int Fusionarse(int cantidadMascotasFucionadas) {
+        return cantidadFusionados += cantidadMascotasFucionadas;
     }
 
+    public int establecerNivelMascota(int cantidadFunciones){
+        switch(cantidadFunciones){
+            case 0:
+            case 1:
+                nivel =1;
+                break;
+            case 2:
+            case 3:
+            case 4:
+                nivel = 2;
+                break;
+            case 5:
+                nivel = 3;
+                break;
+        }
+        
+        return nivel;
+    }
+    public int aumentarVida(int vida){
+       return puntosVida += vida;
+    }
+    public int aumentarAtaque(int ataque){
+        return puntosAtaque += ataque;
+    }
     public void Alimentarce() {
 
     }
 
     public void RecivirDaño() {
-
-    }
-
-    public void CambiarNivel() {
 
     }
 

@@ -11,6 +11,7 @@ public class Buho extends Mascota{
         puntosAtaque = 5;
         puntosVida = 3;
         experiencia = 1;
+        nivel = 1;
     }
 
 //    public Buho(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {

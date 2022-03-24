@@ -88,48 +88,62 @@ public class Tienda {
     public Alimento[] alimentosTienda(int ronda) {
         int contador = 0;
         if (ronda == 1) {
-            System.out.println("\nAlimentos del tier 1 desbloqueados...");
+            System.out.println("Alimentos del tier 1 desbloqueados...");
             while (contador < arregloAlimento.length) {
                 arregloAlimento[contador] = alimetosTienda.tier1();
                 contador++;
             }
         } else if (ronda == 2 || ronda == 3) {
-            System.out.println("\nAlimentos del tier 2 desbloqueados...");
+            System.out.println("Alimentos del tier 2 desbloqueados...");
             while (contador < arregloAlimento.length) {
                 arregloAlimento[contador] = alimetosTienda.tier2();
                 contador++;
             }
         } else if (ronda == 4 || ronda == 5) {
-            System.out.println("\nAlimentos del tier 3 desbloqueados...");
+            System.out.println("Alimentos del tier 3 desbloqueados...");
             while (contador < arregloAlimento.length) {
                 arregloAlimento[contador] = alimetosTienda.tier3();
                 contador++;
             }
         } else if (ronda == 6 || ronda == 7) {
-            System.out.println("\nAlimentos del tier 4 desbloqueados...");
+            System.out.println("Alimentos del tier 4 desbloqueados...");
             while (contador < arregloAlimento.length) {
                 arregloAlimento[contador] = alimetosTienda.tier4();
                 contador++;
             }
         } else if (ronda == 8 || ronda == 9) {
-            System.out.println("\nAlimentos del tier 5 desbloqueados...");
+            System.out.println("Alimentos del tier 5 desbloqueados...");
             while (contador < arregloAlimento.length) {
                 arregloAlimento[contador] = alimetosTienda.tier5();
                 contador++;
             }
         } else if (ronda == 10 || ronda == 11) {
-            System.out.println("\nAlimentos del tier 6 desbloqueados...");
+            System.out.println("Alimentos del tier 6 desbloqueados...");
             while (contador < arregloAlimento.length) {
                 arregloAlimento[contador] = alimetosTienda.tier6();
                 contador++;
             }
         } else {
-            System.out.println("\nAlimentos del tier 7 desbloqueados...");
+            System.out.println("Alimentos del tier 7 desbloqueados...");
             while (contador < arregloAlimento.length) {
                 arregloAlimento[contador] = alimetosTienda.tier7();
                 contador++;
             }
         }
         return arregloAlimento;
+    }
+
+    public void ImprimirMascotasTienda(Mascota[] mascotasTiendaDisponibles) {
+        System.out.println("\nMascotas Disponibles en la Tienda:");
+        for (int i = 0; i < mascotasTiendaDisponibles.length; i++) {
+            System.out.println(String.format("\nMascota %d", (i + 1)));
+            System.out.println(mascotasTiendaDisponibles[i]);
+        }
+    }
+    public void ImprimirAlimentosTienda(Alimento [] alimentosTiendaDisponibles){
+         for (int i = 0; i < alimentosTiendaDisponibles.length; i++) {
+                    System.out.println(String.format("Alimento %d", (i + 1)));
+                    System.out.println(alimentosTiendaDisponibles[i]);
+                }
     }
 }
