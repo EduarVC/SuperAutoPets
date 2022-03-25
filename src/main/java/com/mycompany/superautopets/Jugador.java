@@ -1,6 +1,7 @@
 package com.mycompany.superautopets;
 
 import com.mycompany.Alimento.Alimento;
+import com.mycompany.Alimento.NoHayAlimento;
 import com.mycompany.Mascotas.Mascota;
 import com.mycompany.Mascotas.espacioVacio;
 import java.util.Scanner;
@@ -12,6 +13,7 @@ public class Jugador extends Personaje {
     private Tienda datosTienda;
     protected int vidaJugador;
     public int monedasOro;
+    private Alimento noHayAlimento;
 
     public Jugador() {
 
@@ -21,6 +23,7 @@ public class Jugador extends Personaje {
         cantidadVictorias = 0;
         espacioLibre = new espacioVacio();
         datosTienda = new Tienda();
+        noHayAlimento = new NoHayAlimento();
         espacioDisponible = true;
         mascotasObtenidas[0] = espacioLibre;
         mascotasObtenidas[1] = espacioLibre;
@@ -135,11 +138,77 @@ public class Jugador extends Personaje {
     }
 
     //Metodo para comprar Alimento
-    public Alimento[] ComprarAlimentos(Alimento[] alimentosTienda, Mascota[] mascotasEquipo) {
+    public Mascota [] ComprarAlimentos(Alimento[] alimentosTienda, Mascota[] mascotasEquipo) {
+        AlimentarMascota alimentarMascota = new AlimentarMascota();
+        Tienda alimentos = new Tienda();
         int opcion;
-        System.out.println("\nAlimentos");
+        int mascotaAlimentada;
+        boolean existenAlimentos = true;
 
-        return alimentosTienda;
+        while (!"1".equals(entrada.nextLine()) && existenAlimentos == true && monedasOro > 2) {
+            alimentos.ImprimirAlimentosTienda(alimentosTienda);
+            System.out.println(String.format("Tienes %d monedas de Oro", monedasOro));
+            System.out.println("Que alimentos desea comprar: ");
+            opcion = entrada.nextInt();
+            ImprimirDatosJugador(mascotasEquipo);
+            System.out.println("Elija la mascota que quiere alimentar: ");
+            mascotaAlimentada = entrada.nextInt();
+
+            if (opcion - 1 >= 0 && opcion - 1 < alimentosTienda.length) {
+                if (mascotaAlimentada - 1 >= 0 && mascotaAlimentada - 1 < mascotasEquipo.length) {
+                    if (mascotasEquipo[mascotaAlimentada - 1] != espacioLibre) {
+                        mascotasEquipo[mascotaAlimentada - 1] = alimentarMascota.darAlimento(mascotasEquipo[mascotaAlimentada - 1], alimentosTienda[opcion - 1]);
+                        alimentosTienda[opcion - 1] = noHayAlimento;
+                        System.out.println("\nMascota Alimentada Exitosamente.");
+                        monedasOro = RestarMonedas(3);
+                    } else {
+                        System.out.println("\nNo existe mascota en esta posicion.");
+                        System.out.println("Precione Enter para seguir comprando alimentos.");
+                        System.out.println("Ingrese 1 para regresar al menú anterior.");
+                        entrada.nextLine();
+                    }
+                } else {
+                    System.out.println("\nOpcion Invalisa.");
+                    System.out.println("Precione Enter para seguir comprando alimentos.");
+                    System.out.println("Ingrese 1 para regresar al menú anterior.");
+                    entrada.nextLine();
+                }
+            } else {
+                System.out.println("\nOpcion invalida.");
+                System.out.println("Precione Enter para seguir comprando alimentos.");
+                System.out.println("Ingrese 1 para regresar al menú anterior.");
+                entrada.nextLine();
+            }
+            for (int i = 0; i < alimentosTienda.length; i++) {
+                if (alimentosTienda[i] != noHayAlimento) {
+                    existenAlimentos = true;
+                    break;
+                } else {
+                    existenAlimentos = false;
+                }
+            }
+        }
+        if ("1".equals(entrada.nextLine())) {
+            ImprimirDatosJugador(mascotasEquipo);
+            System.out.println("Precione Enter para continuar...");
+            entrada.nextLine();
+        } else {
+            if (existenAlimentos == false) {
+                System.out.println("\nNo hay mas alimentos disponibles en la tienda.");
+                System.out.println("Precione Enter para continuar...");
+                entrada.nextLine();
+                ImprimirDatosJugador(mascotasEquipo);
+            } else {
+                if (monedasOro < 3) {
+                    System.out.println(String.format("Tienes %d monedas de oro, no cuentas con lo suficiente para seguir comprando alimentos.", monedasOro));
+                    System.out.println("Precione Enter para continuar...");
+                    entrada.nextLine();
+                    ImprimirDatosJugador(mascotasEquipo);
+                }
+            }
+        }
+
+        return mascotasEquipo;
     }
 
     //Metodo para vender las mascotas del Jugador
@@ -269,9 +338,9 @@ public class Jugador extends Personaje {
                         if (mascotasJugador[posicionMascotaJugador - 1].nombreMascota.equals(mascotasJugador[posicionMascotaJugador2 - 1].nombreMascota)) {
                             if (mascotasJugador[posicionMascotaJugador - 1].nivel < 3 && mascotasJugador[posicionMascotaJugador2 - 1].nivel < 3) {
                                 System.out.println("\nMascota Fucionada Exitosamente.");
-                                mascotasJugador[posicionMascotaJugador2-1].establecerNivelMascota(fucion.Fusionarse(1));
-                                mascotasJugador[posicionMascotaJugador2-1].aumentarVida(1);
-                                mascotasJugador[posicionMascotaJugador2-1].aumentarAtaque(1);
+                                mascotasJugador[posicionMascotaJugador2 - 1].establecerNivelMascota(fucion.Fusionarse(1));
+                                mascotasJugador[posicionMascotaJugador2 - 1].aumentarVida(1);
+                                mascotasJugador[posicionMascotaJugador2 - 1].aumentarAtaque(1);
                                 mascotasJugador[posicionMascotaJugador - 1] = espacioLibre;
                                 ImprimirDatosJugador(mascotasJugador);
                                 System.out.println("\nPrecione Enter para continuar fucionando.");
@@ -313,11 +382,11 @@ public class Jugador extends Personaje {
                         if (mascotasJugador[posicionMascotaJugador - 1].nivel < 3) {
                             System.out.println("\nMascota Fucionada Exitosamente.");
                             RestarMonedas(3);
-                            mascotasJugador[posicionMascotaJugador-1].establecerNivelMascota(fucion.Fusionarse(1));
-                            mascotasJugador[posicionMascotaJugador-1].aumentarVida(1);
-                            mascotasJugador[posicionMascotaJugador-1].aumentarAtaque(1);
-                            mascotasTienda[posicionMascotaTienda-1] = espacioLibre;
-                            mascotaTienda.mascotasTienda =mascotasTienda;
+                            mascotasJugador[posicionMascotaJugador - 1].establecerNivelMascota(fucion.Fusionarse(1));
+                            mascotasJugador[posicionMascotaJugador - 1].aumentarVida(1);
+                            mascotasJugador[posicionMascotaJugador - 1].aumentarAtaque(1);
+                            mascotasTienda[posicionMascotaTienda - 1] = espacioLibre;
+                            mascotaTienda.mascotasTienda = mascotasTienda;
                             System.out.println("Precione Enter para continuar fucionando.");
                             System.out.println("Ingrese 1 para regresar al menú anterior.");
                             entrada.nextLine();

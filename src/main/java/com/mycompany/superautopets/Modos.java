@@ -57,7 +57,7 @@ public class Modos {
                 mascotasJugador = jugador.ComprarMascotas(mascotasTienda);
             } else if (accion == 2) {
                 System.out.println("\nAlimentos disponibles: ");
-                nuevaTienda.ImprimirAlimentosTienda(nuevoAlimento);
+                mascotasJugador = jugador.ComprarAlimentos(nuevoAlimento, mascotasJugador);
             } else if (accion == 3) {
                 System.out.println("_________________________________");
                 System.out.println("\nOrdene sus mascotas como desee.");

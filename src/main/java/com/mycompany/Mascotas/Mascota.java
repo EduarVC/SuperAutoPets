@@ -56,8 +56,12 @@ public class Mascota {
 
     }
 
-    public void RecivirDaño() {
-
+    public Mascota RecivirDaño(Mascota mascotaAtacada, int daño) {
+        mascotaAtacada.puntosVida += daño;
+        return mascotaAtacada;
+    }
+    public int dañoRecivido(Mascota mascotaAtaca){
+        return mascotaAtaca.puntosAtaque;
     }
 
     public void CambiarEfecto() {

@@ -12,8 +12,7 @@ public class Naranja extends Alimento {
     }
 
     public double aplicarEfectoAlimento(int dañoRecivido) {
-        double dañoDevuelto = 0;
-
+        double dañoDevuelto;
         dañoDevuelto = dañoRecivido * 0.10;
 
         return dañoDevuelto;
