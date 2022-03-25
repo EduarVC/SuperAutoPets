@@ -1,5 +1,7 @@
 package com.mycompany.Alimento;
 
+import com.mycompany.Mascotas.Mascota;
+
 public class Alimento {
 
     protected String nombreAlimento;
@@ -14,5 +16,14 @@ public class Alimento {
         } else {
             return "Nombre: " + nombreAlimento + "\nDescripcción: " + descripccion;
         }
+    }
+    public boolean aplicarEfecto(Mascota mascotaObtieneAlimento){
+        if(tipoEfecto == true){
+            mascotaObtieneAlimento.efecto = true;
+        }else{
+            mascotaObtieneAlimento.efecto = false;
+        }
+        
+        return mascotaObtieneAlimento.efecto;
     }
 }

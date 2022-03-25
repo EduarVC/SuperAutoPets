@@ -11,7 +11,7 @@ public class Mascota {
     public int puntosVida;
     public int puntosAtaque;
     protected int dañoRecivido;
-    protected boolean efecto;
+    public boolean efecto;
     protected int experiencia;
 
     @Override
