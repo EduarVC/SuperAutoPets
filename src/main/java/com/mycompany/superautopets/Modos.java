@@ -72,6 +72,8 @@ public class Modos {
         } while (accion != 6);
         mascotasIA = enemigo.obtenreMascotasIA(ronda);
         enemigo.ImprimirMascotasIA(mascotasIA);
+        
+        
     }
     
     public static void ModoVersus() {
