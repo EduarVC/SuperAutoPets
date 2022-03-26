@@ -16,7 +16,7 @@ public class Abeja extends Mascota{
         efecto = false;
         alimento = false;
         nombreAlimento = "Sin Alimentar";
-        nombreEfecto = "Sin Efec";
+        nombreEfecto = "Sin Efecto";
         dañoRecivido = 0;
          
     }
