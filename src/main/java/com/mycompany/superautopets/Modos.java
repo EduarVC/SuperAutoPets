@@ -16,7 +16,7 @@ public class Modos {
     
     private Jugador jugador;
     private IA enemigo;
-    private Mascota[] mascotasIA;
+    public Mascota[] mascotasIA;
     private Campo campo;
     private int ronda;
     private Tienda nuevaTienda;

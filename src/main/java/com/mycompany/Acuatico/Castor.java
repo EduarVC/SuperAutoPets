@@ -1,18 +1,36 @@
 package com.mycompany.Acuatico;
-import com.mycompany.Mascotas.Acuatico;
+
 import com.mycompany.Mascotas.Mascota;
+import com.mycompany.Mascotas.espacioVacio;
 
-public class Castor extends Mascota{
+public class Castor extends Mascota {
 
-    public Castor(){
+    public boolean vendido;
+
+    public Castor() {
         nombreMascota = "Castor";
         habilidad = "Represa";
         puntosAtaque = 2;
         puntosVida = 2;
         experiencia = 1;
+        vendido = false;
+
     }
-//    public Castor(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
-//        super("Castor", "Represa", 2, 2, 1);
-//    }
-    
+
+    @Override
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad) {
+        Mascota espacioLibre = new espacioVacio();
+        if(vendido != false){
+           do{
+            int numero = (int) (Math.random() * mascotasJugador.length + 1);
+            if(mascotasJugador[numero-1] != espacioLibre){
+                if(mascotaHabilidad.nivel == 1){
+                    
+                }
+            }
+           }while(vendido == false);
+        }
+        return mascotasJugador;
+    }
+
 }

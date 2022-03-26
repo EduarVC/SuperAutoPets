@@ -1,11 +1,12 @@
-package com.mycompany.Volador;
+
+package com.mycompany.Insecto;
 
 import com.mycompany.Mascotas.Mascota;
 
-public class Abeja extends Mascota{
-    public Abeja(){
-        nombreMascota = "Abeja";
-        habilidad = "Ninguna";
+public class GrilloZombie extends Mascota{
+    public GrilloZombie(){
+        nombreMascota = "Grillo Zombie";
+        habilidad = "Sin habilidad";
         puntosAtaque = 1;
         puntosVida = 1;
         experiencia = 1;
@@ -18,6 +19,5 @@ public class Abeja extends Mascota{
         nombreAlimento = "Sin Alimentar";
         nombreEfecto = "Sin Efecto";
         dañoRecivido = 0;
-         
     }
 }

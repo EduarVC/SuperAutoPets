@@ -53,10 +53,12 @@ public class Jugador extends Personaje {
     }
 
     public void ImprimirDatosJugador(Mascota[] mascotasJugador) {
+        Mascota tipo = new Mascota();
         System.out.println("\nMascotas de tu Equipo:");
         for (int i = 0; i < mascotasJugador.length; i++) {
             System.out.println(String.format("Mascota %d", (i + 1)));
             System.out.println(mascotasJugador[i]);
+            tipo.imprimirTipos(mascotasJugador[i].tipoMascota);
         }
     }
 
@@ -305,8 +307,6 @@ public class Jugador extends Personaje {
 
     public Mascota[] FucionarMascotas(Mascota[] mascotasTienda, Mascota[] mascotasJugador) {
         Mascota fucion = new Mascota();
-        Mascota nivel = new Mascota();
-        Mascota aumentarPuntos = new Mascota();
         Modos mascotaTienda = new Modos();
         int posicionMascotaTienda;
         int posicionMascotaJugador;

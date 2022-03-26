@@ -1,18 +1,48 @@
 package com.mycompany.Acuatico;
-import com.mycompany.Mascotas.Acuatico;
+
 import com.mycompany.Mascotas.Mascota;
+import com.mycompany.Mascotas.espacioVacio;
 
-public class Pescado extends Mascota{
+public class Pescado extends Mascota {
 
-    public Pescado(){
+    private boolean habilidadAplicada = true;
+
+    public Pescado() {
         nombreMascota = "Pescado";
         habilidad = "Power-up";
         puntosAtaque = 2;
         puntosVida = 3;
         experiencia = 1;
+        nivel = 1;
+        cantidadFusionados = 0;
+        tipoMascota = new String[1];
+        tipoMascota[0] = "Acuatico";
+        efecto = false;
+        alimento = false;
+        nombreAlimento = "Sin Alimentar";
+        nombreEfecto = "Sin Efecto";
+        dañoRecivido = 0;
+
     }
-//    public Pescado(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
-//        super("Pescado", "Power-up", 3, 2,1);
-//    }
-    
+
+    @Override
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad) {
+        Mascota espacioLibre = new espacioVacio();
+        for (int i = 0; i < mascotasJugador.length; i++) {
+            if (mascotasJugador[i] != espacioLibre) {
+                if (mascotaHabilidad.cantidadFusionados == 2 && habilidadAplicada == false) {
+                    mascotasJugador[i].puntosAtaque += 1;
+                    mascotasJugador[i].puntosVida += 1;
+                    habilidadAplicada = true;
+                } else if (mascotaHabilidad.cantidadFusionados == 5 && habilidadAplicada == true) {
+                    mascotasJugador[i].puntosAtaque += 2;
+                    mascotasJugador[i].puntosVida += 2;
+                    habilidadAplicada = false;
+                }
+            }
+
+        }
+
+        return mascotasJugador;
+    }
 }

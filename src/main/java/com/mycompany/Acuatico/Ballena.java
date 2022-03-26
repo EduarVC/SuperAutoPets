@@ -10,16 +10,17 @@ public class Ballena extends Mascota{
         puntosAtaque = 3;
         puntosVida = 8;
         experiencia = 1;
+        
+        nivel = 1;
+        cantidadFusionados = 0;
+        tipoMascota = new String[1];
+        tipoMascota[0] = "Sin Tipo";
+        efecto = false;
+        alimento = false;
+        nombreAlimento = "Sin Alimentar";
+        nombreEfecto = "Sin Efecto";
+        dañoRecivido = 0;
     }
 
-//    public Ballena(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
-//        super("Ballena", "Succion", 8, 3, 1);
-//    }
-    
-//    public Ballena(){
-//        nombreMascota = "Ballena";
-//        habilidad = "Succion";
-//        puntosAtaque = 3;
-//        puntosVida = 8;
-//    }
+
 }

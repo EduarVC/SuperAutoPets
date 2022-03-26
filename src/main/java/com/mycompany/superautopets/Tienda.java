@@ -2,6 +2,7 @@ package com.mycompany.superautopets;
 
 import com.mycompany.Alimento.Alimento;
 import com.mycompany.Mascotas.Mascota;
+import com.mycompany.Terrestre.Mamut;
 
 public class Tienda {
 
@@ -134,10 +135,12 @@ public class Tienda {
     }
 
     public void ImprimirMascotasTienda(Mascota[] mascotasTiendaDisponibles) {
+        Mascota tipo = new Mamut();
         System.out.println("\nMascotas Disponibles en la Tienda:");
         for (int i = 0; i < mascotasTiendaDisponibles.length; i++) {
             System.out.println(String.format("\nMascota %d", (i + 1)));
             System.out.println(mascotasTiendaDisponibles[i]);
+            tipo.imprimirTipos(mascotasTiendaDisponibles[i].tipoMascota);
         }
     }
     public void ImprimirAlimentosTienda(Alimento [] alimentosTiendaDisponibles){
