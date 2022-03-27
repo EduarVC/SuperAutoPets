@@ -20,7 +20,7 @@ public class Modos {
     private Campo campo;
     private int ronda;
     private Tienda nuevaTienda;
-    protected Mascota[] mascotasTienda;
+    public Mascota[] mascotasTienda;
     private Mascota[] mascotasJugador;
     private Alimento[] nuevoAlimento;
 

@@ -146,12 +146,14 @@ public class Jugador extends Personaje {
         int opcion;
         int mascotaAlimentada;
         boolean existenAlimentos = true;
+        boolean alimentoMascotaEspecifica;
 
         while (!"1".equals(entrada.nextLine()) && existenAlimentos == true && monedasOro > 2) {
             alimentos.ImprimirAlimentosTienda(alimentosTienda);
             System.out.println(String.format("Tienes %d monedas de Oro", monedasOro));
             System.out.println("Que alimentos desea comprar: ");
             opcion = entrada.nextInt();
+            
             ImprimirDatosJugador(mascotasEquipo);
             System.out.println("Elija la mascota que quiere alimentar: ");
             mascotaAlimentada = entrada.nextInt();
@@ -159,7 +161,7 @@ public class Jugador extends Personaje {
             if (opcion - 1 >= 0 && opcion - 1 < alimentosTienda.length) {
                 if (mascotaAlimentada - 1 >= 0 && mascotaAlimentada - 1 < mascotasEquipo.length) {
                     if (mascotasEquipo[mascotaAlimentada - 1] != espacioLibre) {
-                        mascotasEquipo[mascotaAlimentada - 1] = alimentarMascota.darAlimento(mascotasEquipo[mascotaAlimentada - 1], alimentosTienda[opcion - 1]);
+                        mascotasEquipo[mascotaAlimentada - 1] = alimentarMascota.darAlimento(mascotasEquipo[mascotaAlimentada - 1], alimentosTienda[opcion - 1]); 
                         alimentosTienda[opcion - 1] = noHayAlimento;
                         System.out.println("\nMascota Alimentada Exitosamente.");
                         monedasOro = RestarMonedas(3);

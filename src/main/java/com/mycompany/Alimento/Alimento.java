@@ -4,9 +4,9 @@ import com.mycompany.Mascotas.Mascota;
 
 public class Alimento {
 
-    protected String nombreAlimento;
+    public String nombreAlimento;
     protected String descripccion;
-    protected boolean tipoEfecto;
+    public boolean tipoEfecto;
 
     @Override
     public String toString(){
@@ -17,13 +17,5 @@ public class Alimento {
             return "Nombre: " + nombreAlimento + "\nDescripcción: " + descripccion;
         }
     }
-    public boolean aplicarEfecto(Mascota mascotaObtieneAlimento){
-        if(tipoEfecto == true){
-            mascotaObtieneAlimento.efecto = true;
-        }else{
-            mascotaObtieneAlimento.efecto = false;
-        }
-        
-        return mascotaObtieneAlimento.efecto;
-    }
+   
 }
