@@ -14,6 +14,7 @@ public class Jugador extends Personaje {
     protected int vidaJugador;
     public int monedasOro;
     private Alimento noHayAlimento;
+    private boolean estaVivo;
 
     public Jugador() {
 
@@ -30,6 +31,7 @@ public class Jugador extends Personaje {
         mascotasObtenidas[2] = espacioLibre;
         mascotasObtenidas[3] = espacioLibre;
         mascotasObtenidas[4] = espacioLibre;
+        estaVivo = true;
 
     }
 
@@ -56,7 +58,7 @@ public class Jugador extends Personaje {
         Mascota tipo = new Mascota();
         System.out.println("\nMascotas de tu Equipo:");
         for (int i = 0; i < mascotasJugador.length; i++) {
-            System.out.println(String.format("Mascota %d", (i + 1)));
+            System.out.println(String.format("\nMascota %d", (i + 1)));
             System.out.println(mascotasJugador[i]);
             tipo.imprimirTipos(mascotasJugador[i].tipoMascota);
         }
@@ -72,7 +74,7 @@ public class Jugador extends Personaje {
         while (monedasOro > 2 && espacioDisponible == true) {
             espacioDisponible = false;
             System.out.println("Tienes: " + monedasOro + " monedas de oro");
-            System.out.println("Elija la Mascota que desee comprar:");
+            System.out.println("\nElija la Mascota que desee comprar:");
             opcion = entrada.nextInt();
             if (opcion < 1 || opcion > mascotasTienda.length) {
                 System.out.println("\nOpcion invalida.\n");
@@ -140,7 +142,7 @@ public class Jugador extends Personaje {
     }
 
     //Metodo para comprar Alimento
-    public Mascota [] ComprarAlimentos(Alimento[] alimentosTienda, Mascota[] mascotasEquipo) {
+    public Mascota[] ComprarAlimentos(Alimento[] alimentosTienda, Mascota[] mascotasEquipo) {
         AlimentarMascota alimentarMascota = new AlimentarMascota();
         Tienda alimentos = new Tienda();
         int opcion;
@@ -148,68 +150,87 @@ public class Jugador extends Personaje {
         boolean existenAlimentos = true;
         boolean alimentoMascotaEspecifica;
 
-        while (!"1".equals(entrada.nextLine()) && existenAlimentos == true && monedasOro > 2) {
-            alimentos.ImprimirAlimentosTienda(alimentosTienda);
-            System.out.println(String.format("Tienes %d monedas de Oro", monedasOro));
-            System.out.println("Que alimentos desea comprar: ");
-            opcion = entrada.nextInt();
-            
-            ImprimirDatosJugador(mascotasEquipo);
-            System.out.println("Elija la mascota que quiere alimentar: ");
-            mascotaAlimentada = entrada.nextInt();
+        do {
+            if (monedasOro > 2) {
+                alimentos.ImprimirAlimentosTienda(alimentosTienda);
+                System.out.println(String.format("\nTienes %d monedas de Oro", monedasOro));
+                System.out.println("Que alimentos desea comprar: ");
+                opcion = entrada.nextInt();
+                alimentoMascotaEspecifica = alimentarMascota.mascotaEspecifica(alimentosTienda[opcion - 1]);
+                if (alimentoMascotaEspecifica == true) {
+                    ImprimirDatosJugador(mascotasEquipo);
+                    System.out.println("Elija la mascota que quiere alimentar: ");
+                    mascotaAlimentada = entrada.nextInt();
 
-            if (opcion - 1 >= 0 && opcion - 1 < alimentosTienda.length) {
-                if (mascotaAlimentada - 1 >= 0 && mascotaAlimentada - 1 < mascotasEquipo.length) {
-                    if (mascotasEquipo[mascotaAlimentada - 1] != espacioLibre) {
-                        mascotasEquipo[mascotaAlimentada - 1] = alimentarMascota.darAlimento(mascotasEquipo[mascotaAlimentada - 1], alimentosTienda[opcion - 1]); 
-                        alimentosTienda[opcion - 1] = noHayAlimento;
-                        System.out.println("\nMascota Alimentada Exitosamente.");
-                        monedasOro = RestarMonedas(3);
+                    if (opcion - 1 >= 0 && opcion - 1 < alimentosTienda.length) {
+                        if (mascotaAlimentada - 1 >= 0 && mascotaAlimentada - 1 < mascotasEquipo.length) {
+                            if (mascotasEquipo[mascotaAlimentada - 1] != espacioLibre) {
+                                mascotasEquipo[mascotaAlimentada - 1] = alimentarMascota.darAlimento(mascotasEquipo[mascotaAlimentada - 1], alimentosTienda[opcion - 1]);
+                                alimentosTienda[opcion - 1] = noHayAlimento;
+                                System.out.println("\nMascota Alimentada Exitosamente.");
+                                monedasOro = RestarMonedas(3);
+                                System.out.println("Precione Enter para seguir comprando alimentos.");
+                                System.out.println("Ingrese 1 para regresar al menú anterior.");
+                                entrada.nextLine();
+                            } else {
+                                System.out.println("\nNo existe mascota en esta posicion.");
+                                System.out.println("Precione Enter para seguir comprando alimentos.");
+                                System.out.println("Ingrese 1 para regresar al menú anterior.");
+                                entrada.nextLine();
+                            }
+                        } else {
+                            System.out.println("\nOpcion Invalisa.");
+                            System.out.println("Precione Enter para seguir comprando alimentos.");
+                            System.out.println("Ingrese 1 para regresar al menú anterior.");
+                            entrada.nextLine();
+                        }
                     } else {
-                        System.out.println("\nNo existe mascota en esta posicion.");
+                        System.out.println("\nOpcion invalida.");
                         System.out.println("Precione Enter para seguir comprando alimentos.");
                         System.out.println("Ingrese 1 para regresar al menú anterior.");
                         entrada.nextLine();
                     }
                 } else {
-                    System.out.println("\nOpcion Invalisa.");
-                    System.out.println("Precione Enter para seguir comprando alimentos.");
-                    System.out.println("Ingrese 1 para regresar al menú anterior.");
-                    entrada.nextLine();
+                    if (opcion - 1 >= 0 && opcion - 1 < alimentosTienda.length) {
+                        mascotasEquipo = alimentarMascota.darAlimentoAleatorio(mascotasEquipo, alimentosTienda[opcion - 1]);
+                        alimentosTienda[opcion - 1] = noHayAlimento;
+                        System.out.println("\nProceso Exitoso.");
+                        monedasOro = RestarMonedas(3);
+                    } else {
+                        System.out.println("\nOpcion invalida.");
+                        System.out.println("Precione Enter para seguir comprando alimentos.");
+                        System.out.println("Ingrese 1 para regresar al menú anterior.");
+                        entrada.nextLine();
+                    }
+                }
+                for (int i = 0; i < alimentosTienda.length; i++) {
+                    if (alimentosTienda[i] != noHayAlimento) {
+                        existenAlimentos = true;
+                        break;
+                    } else {
+                        existenAlimentos = false;
+                    }
                 }
             } else {
-                System.out.println("\nOpcion invalida.");
-                System.out.println("Precione Enter para seguir comprando alimentos.");
-                System.out.println("Ingrese 1 para regresar al menú anterior.");
-                entrada.nextLine();
+                System.out.println("No tienes suficientes monedas de oro para comprar alimentos.");
+//                System.out.println("Ingrese 1 para continuar.");
             }
-            for (int i = 0; i < alimentosTienda.length; i++) {
-                if (alimentosTienda[i] != noHayAlimento) {
-                    existenAlimentos = true;
-                    break;
-                } else {
-                    existenAlimentos = false;
-                }
-            }
-        }
+        } while (!"1".equals(entrada.nextLine()) && existenAlimentos == true);
+
         if ("1".equals(entrada.nextLine())) {
             ImprimirDatosJugador(mascotasEquipo);
             System.out.println("Precione Enter para continuar...");
             entrada.nextLine();
-        } else {
-            if (existenAlimentos == false) {
-                System.out.println("\nNo hay mas alimentos disponibles en la tienda.");
-                System.out.println("Precione Enter para continuar...");
-                entrada.nextLine();
-                ImprimirDatosJugador(mascotasEquipo);
-            } else {
-                if (monedasOro < 3) {
-                    System.out.println(String.format("Tienes %d monedas de oro, no cuentas con lo suficiente para seguir comprando alimentos.", monedasOro));
-                    System.out.println("Precione Enter para continuar...");
-                    entrada.nextLine();
-                    ImprimirDatosJugador(mascotasEquipo);
-                }
-            }
+        } else if (existenAlimentos == false) {
+            System.out.println("\nNo hay mas alimentos disponibles en la tienda.");
+            System.out.println("Precione Enter para continuar...");
+            entrada.nextLine();
+            ImprimirDatosJugador(mascotasEquipo);
+        } else if (monedasOro < 3) {
+            System.out.println(String.format("Tienes %d monedas de oro, no cuentas con lo suficiente para seguir comprando alimentos.", monedasOro));
+            System.out.println("Precione Enter para continuar...");
+            entrada.nextLine();
+            ImprimirDatosJugador(mascotasEquipo);
         }
 
         return mascotasEquipo;
@@ -431,6 +452,30 @@ public class Jugador extends Personaje {
     //se suman las monedas de oro obtenidas 
     public int SumarMonedas(int monedasObtenidas) {
         return monedasOro += monedasObtenidas;
+    }
+    public int restarVida(int ronda){
+        switch (ronda) {
+            case 1:
+            case 2:
+            case 3:
+                vidaJugador -= 1;
+                break;
+            case 4:
+            case 5:
+            case 6:
+                vidaJugador -= 2;
+                break;
+            default:
+                vidaJugador -= 3;
+                break;
+        }
+        if (vidaJugador < 1){
+            estaVivo = false;
+        }
+        return vidaJugador;
+    }
+    public boolean estaVivo(){
+        return estaVivo;
     }
 
 }

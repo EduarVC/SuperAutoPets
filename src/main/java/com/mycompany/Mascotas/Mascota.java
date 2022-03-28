@@ -5,7 +5,7 @@ public class Mascota {
     //Atributos generales
     public String nombreMascota;
     protected String habilidad;
-    public String [] tipoMascota;
+    public String[] tipoMascota;
     public int cantidadFusionados;
     public int nivel;
     public int puntosVida;
@@ -16,24 +16,28 @@ public class Mascota {
     public boolean alimento;
     public String nombreAlimento;
     public String nombreEfecto;
-    
 
     @Override
     public String toString() {
-        return "Nombre: " + nombreMascota + "\nHabilidad: " + habilidad + "\nNivel: " + nivel + "\nPuntos de ataque: " + puntosAtaque + "\nPuntos de vida: " + puntosVida + "\nExperiencia: " + experiencia + "\nFucionados: " + cantidadFusionados + "\nEfecto: " + nombreEfecto ;
+        if (alimento == true) {
+            return "Nombre: " + nombreMascota + "\nHabilidad: " + habilidad + "\nNivel: " + nivel + "\nPuntos de ataque: " + puntosAtaque + "\nPuntos de vida: " + puntosVida + "\nExperiencia: " + experiencia + "\nFucionados: " + cantidadFusionados + "\nEfecto: " + nombreEfecto + "\nAlimento: " + nombreAlimento;
+
+        } else {
+            return "Nombre: " + nombreMascota + "\nHabilidad: " + habilidad + "\nNivel: " + nivel + "\nPuntos de ataque: " + puntosAtaque + "\nPuntos de vida: " + puntosVida + "\nExperiencia: " + experiencia + "\nFucionados: " + cantidadFusionados + "\nEfecto: " + nombreEfecto;
+        }
     }
-    public void imprimirTipos(String [] mascotaTipo){
+
+    public void imprimirTipos(String[] mascotaTipo) {
         for (int i = 0; i < mascotaTipo.length; i++) {
-            System.out.println(String.format("Tipo %d: %s ",(i+1), mascotaTipo[i]));
+            System.out.println(String.format("Tipo %d: %s ", (i + 1), mascotaTipo[i]));
         }
     }
 
     public void Atacar() {
 
-    } 
+    }
 
     public int Fusionarse(int cantidadMascotasFucionadas) {
-
         return cantidadFusionados += cantidadMascotasFucionadas;
     }
 
@@ -80,10 +84,10 @@ public class Mascota {
     public void CambiarEfecto() {
 
     }
-     public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad) {
-         
-     return mascotasJugador;
-     }
-     
+
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad) {
+
+        return mascotasJugador;
+    }
 
 }

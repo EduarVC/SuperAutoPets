@@ -13,7 +13,7 @@ import com.mycompany.Mascotas.Mascota;
 import java.util.Scanner;
 
 public class Modos {
-    
+    static Scanner entrada = new Scanner(System.in);
     private Jugador jugador;
     private IA enemigo;
     public Mascota[] mascotasIA;
@@ -39,6 +39,7 @@ public class Modos {
         
         System.out.println("\nModo Arena\n");
         campo = obtenerCampo();
+        while(jugador.estaVivo()){
         mascotasTienda = nuevaTienda.mascotasTienda(ronda);
         nuevoAlimento = nuevaTienda.alimentosTienda(ronda);
         do {
@@ -56,6 +57,7 @@ public class Modos {
                 nuevaTienda.ImprimirMascotasTienda(mascotasTienda);
                 mascotasJugador = jugador.ComprarMascotas(mascotasTienda);
             } else if (accion == 2) {
+                System.out.println("_________________________");
                 System.out.println("\nAlimentos disponibles: ");
                 mascotasJugador = jugador.ComprarAlimentos(nuevoAlimento, mascotasJugador);
             } else if (accion == 3) {
@@ -72,10 +74,12 @@ public class Modos {
         } while (accion != 6);
         mascotasIA = enemigo.obtenreMascotasIA(ronda);
         enemigo.ImprimirMascotasIA(mascotasIA);
-        
-        
+            System.out.println("\nPrecione enter para continuar...");
+            entrada.nextLine();
+        campo.AplicarEfectosCampo(mascotasJugador, campo);
+        campo.AplicarEfectosCampo(mascotasIA, campo);
     }
-    
+    }
     public static void ModoVersus() {
         
     }
@@ -91,7 +95,7 @@ public class Modos {
 
     //Metodo para obtener el campo
     public Campo obtenerCampo() {
-        Scanner entrada = new Scanner(System.in);
+        
         int opcion;
         
         System.out.println("1. Pantano");

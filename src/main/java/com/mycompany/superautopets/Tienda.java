@@ -149,7 +149,7 @@ public class Tienda {
     }
     public void ImprimirAlimentosTienda(Alimento [] alimentosTiendaDisponibles){
          for (int i = 0; i < alimentosTiendaDisponibles.length; i++) {
-                    System.out.println(String.format("Alimento %d", (i + 1)));
+                    System.out.println(String.format("\nAlimento %d", (i + 1)));
                     System.out.println(alimentosTiendaDisponibles[i]);
                 }
     }

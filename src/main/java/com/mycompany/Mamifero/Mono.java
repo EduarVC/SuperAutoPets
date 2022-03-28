@@ -1,6 +1,6 @@
 package com.mycompany.Mamifero;
 
-import com.mycompany.Mascotas.Mamifero;
+import com.mycompany.Clasificacion.Mamifero;
 import com.mycompany.Mascotas.Mascota;
 
 public class Mono extends Mascota{

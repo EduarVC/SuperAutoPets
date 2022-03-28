@@ -12,7 +12,7 @@ public class Abeja extends Mascota{
         nivel = 1;
         cantidadFusionados = 0;
         tipoMascota = new String[1];
-        tipoMascota[0] = "Sin Tipo";
+        tipoMascota[0] = "Invocada";
         efecto = false;
         alimento = false;
         nombreAlimento = "Sin Alimentar";

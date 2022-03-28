@@ -7,6 +7,7 @@ public class Alimento {
     public String nombreAlimento;
     protected String descripccion;
     public boolean tipoEfecto;
+    public String nombreEfecto;
 
     @Override
     public String toString(){
@@ -17,5 +18,6 @@ public class Alimento {
             return "Nombre: " + nombreAlimento + "\nDescripcción: " + descripccion;
         }
     }
+    
    
 }

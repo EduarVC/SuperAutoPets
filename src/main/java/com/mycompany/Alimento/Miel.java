@@ -8,6 +8,7 @@ public class Miel extends Alimento{
         nombreAlimento = "Miel";
         descripccion = "Invoca una abaje despues de morir la mascota seleccionada.";
         tipoEfecto = true;
+        nombreEfecto = "Miel de abeja";
     }
     public Mascota devolverMascota (){
         Mascota mascotaAbeja = new Abeja();

@@ -1,7 +1,7 @@
 package com.mycompany.Terrestre;
 
 import com.mycompany.Mascotas.Mascota;
-import com.mycompany.Mascotas.Terrestre;
+import com.mycompany.Clasificacion.Terrestre;
 
 public class Rata extends Mascota{
     

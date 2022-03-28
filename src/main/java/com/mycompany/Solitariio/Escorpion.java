@@ -1,7 +1,7 @@
 package com.mycompany.Solitariio;
 
 import com.mycompany.Mascotas.Mascota;
-import com.mycompany.Mascotas.Solitario;
+import com.mycompany.Clasificacion.Solitario;
 
 public class Escorpion extends Mascota{
 

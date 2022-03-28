@@ -1,8 +1,8 @@
 package com.mycompany.Insecto;
 
-import com.mycompany.Mascotas.Insecto;
+import com.mycompany.Clasificacion.Insecto;
 import com.mycompany.Mascotas.Mascota;
-import com.mycompany.Mascotas.Volador;
+import com.mycompany.Clasificacion.Volador;
 
 public class Mosca extends Mascota{
 

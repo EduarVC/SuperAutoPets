@@ -1,6 +1,6 @@
 package com.mycompany.Insecto;
 
-import com.mycompany.Mascotas.Insecto;
+import com.mycompany.Clasificacion.Insecto;
 import com.mycompany.Mascotas.Mascota;
 
 public class Araña extends Mascota{

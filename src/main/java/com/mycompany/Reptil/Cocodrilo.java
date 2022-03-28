@@ -1,7 +1,7 @@
 package com.mycompany.Reptil;
 
 import com.mycompany.Mascotas.Mascota;
-import com.mycompany.Mascotas.Reptil;
+import com.mycompany.Clasificacion.Reptil;
 
 public class Cocodrilo extends Mascota{
 

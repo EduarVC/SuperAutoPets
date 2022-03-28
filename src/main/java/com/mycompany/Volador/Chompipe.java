@@ -1,7 +1,7 @@
 package com.mycompany.Volador;
 
 import com.mycompany.Mascotas.Mascota;
-import com.mycompany.Mascotas.Volador;
+import com.mycompany.Clasificacion.Volador;
 
 public class Chompipe extends Mascota{
 

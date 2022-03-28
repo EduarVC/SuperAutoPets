@@ -1,5 +1,5 @@
 package com.mycompany.Acuatico;
-import com.mycompany.Mascotas.Acuatico;
+import com.mycompany.Clasificacion.Acuatico;
 import com.mycompany.Mascotas.Mascota;
 
 public class Hipopotamo extends Mascota{
