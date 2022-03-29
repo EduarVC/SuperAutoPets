@@ -2,6 +2,7 @@ package com.mycompany.Insecto;
 
 import com.mycompany.Clasificacion.Insecto;
 import com.mycompany.Mascotas.Mascota;
+import com.mycompany.Mascotas.espacioVacio;
 import com.mycompany.superautopets.Modos;
 
 public class Escarabajo extends Mascota {
@@ -24,24 +25,33 @@ public class Escarabajo extends Mascota {
     }
 
     @Override
-    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad) {
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad, Mascota [] mascotasTienda) {
         Modos mascotasTien = new Modos();
+        Mascota espacioLibre = new espacioVacio();
+//        Mascota [] mascotasTienda;
+//        mascotasTienda = mascotasTien.mascotasTienda;
         if (alimento == true) {
-            for (int i = 0; i < mascotasTien.mascotasTienda.length; i++) {
+            for (int i = 0; i < mascotasTienda.length; i++) {
+                if(mascotasTienda[i] != espacioLibre){
                 switch (mascotaHabilidad.nivel) {
                     case 1:
-                        mascotasTien.mascotasTienda[i].puntosVida += 1;
+                        mascotasTienda[i].puntosVida += 1;
+                        alimento = false;
                         break;
                     case 2:
-                        mascotasTien.mascotasTienda[i].puntosVida += 2;
+                        mascotasTienda[i].puntosVida += 2;
+                        alimento = false;
                         break;
                     case 3:
-                        mascotasTien.mascotasTienda[i].puntosVida += 3;
+                        mascotasTienda[i].puntosVida += 3;
+                        alimento = false;
                         break;
                     default:
                         break;
                 }
+                }
             }
+            System.out.println("\nHabilidad del Escarabajo aplicada.");
         }
         return mascotasJugador;
     }

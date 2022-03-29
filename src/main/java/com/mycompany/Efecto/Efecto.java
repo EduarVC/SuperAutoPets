@@ -1,9 +1,13 @@
 package com.mycompany.Efecto;
 
+import com.mycompany.Alimento.Alimento;
+import com.mycompany.Mascotas.Mascota;
+
 public class Efecto {
-    private String nombreEfecto;
+    protected String nombreEfecto;
+    protected Alimento alimentoRelacionado;
     
-    public void AplicarEfecto(){
-        
+    public Mascota AplicarEfecto( Mascota mascota){
+        return mascota;
     }
 }

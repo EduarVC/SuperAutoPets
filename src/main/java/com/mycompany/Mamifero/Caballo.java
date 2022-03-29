@@ -26,28 +26,25 @@ public class Caballo extends Mascota {
     }
 
     @Override
-    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad) {
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad, Mascota [] mascotasEnemigo) {
 
-        if (invocar == true) {
-            
-            for (int i = 0; i < mascotasJugador.length; i++) {
-                if("Invocada".equals(mascotasJugador[i].tipoMascota[0])){
-                    switch (mascotaHabilidad.nivel) {
-                        case 1:
-                            mascotasJugador[i].puntosAtaque += 1;
-                            break;
-                        case 2:
-                            mascotasJugador[i].puntosAtaque += 2;
-                            break;
-                        case 3:
-                            mascotasJugador[i].puntosAtaque += 3;
-                            break;
-                        default:
-                            break;
-                    }
-                    System.out.println("\nHabilidad del caballo aplicada.");
-                    break;
+        for (int i = 0; i < mascotasJugador.length; i++) {
+            if ("Invocada".equals(mascotasJugador[i].tipoMascota[0])) {
+                switch (mascotaHabilidad.nivel) {
+                    case 1:
+                        mascotasJugador[i].puntosAtaque += 1;
+                        break;
+                    case 2:
+                        mascotasJugador[i].puntosAtaque += 2;
+                        break;
+                    case 3:
+                        mascotasJugador[i].puntosAtaque += 3;
+                        break;
+                    default:
+                        break;
                 }
+                System.out.println("\nHabilidad del caballo aplicada.");
+                break;
             }
         }
         return mascotasJugador;

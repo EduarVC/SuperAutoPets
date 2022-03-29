@@ -22,7 +22,7 @@ public class Grillo extends Mascota {
     }
 
     @Override
-    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad) {
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad, Mascota[] mascotasEnemigo) {
         Mascota zombie = new GrilloZombie();
         if (mascotaHabilidad.puntosVida != 0) {
             return mascotasJugador;

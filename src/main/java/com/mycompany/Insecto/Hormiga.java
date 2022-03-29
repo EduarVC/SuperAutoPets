@@ -24,32 +24,34 @@ public class Hormiga extends Mascota {
     }
 
     @Override
-    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad) {
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad,  Mascota [] mascotasEnemigo) {
         Mascota espacioLibre = new espacioVacio();
         boolean verificar = false;
-        do {
-            int numero = (int) (Math.random() * mascotasJugador.length + 1);
-            if (mascotasJugador[numero + 1] != espacioLibre) {
-                switch (mascotaHabilidad.nivel) {
-                    case 1:
-                        mascotasJugador[numero + 1].puntosAtaque += 2;
-                        mascotasJugador[numero + 1].puntosVida += 1;
-                        verificar = true;
-                        break;
-                    case 2:
-                        mascotasJugador[numero + 1].puntosAtaque += 4;
-                        mascotasJugador[numero + 1].puntosVida += 2;
-                        verificar = true;
-                        break;
-                    default:
-                        mascotasJugador[numero + 1].puntosAtaque += 6;
-                        mascotasJugador[numero + 1].puntosVida += 3;
-                        verificar = true;
-                        break;
-                }
+        if (mascotaHabilidad.puntosVida < 1) {
+            do {
+                int numero = (int) (Math.random() * mascotasJugador.length + 1);
+                if (mascotasJugador[numero + 1] != espacioLibre) {
+                    switch (mascotaHabilidad.nivel) {
+                        case 1:
+                            mascotasJugador[numero + 1].puntosAtaque += 2;
+                            mascotasJugador[numero + 1].puntosVida += 1;
+                            verificar = true;
+                            break;
+                        case 2:
+                            mascotasJugador[numero + 1].puntosAtaque += 4;
+                            mascotasJugador[numero + 1].puntosVida += 2;
+                            verificar = true;
+                            break;
+                        default:
+                            mascotasJugador[numero + 1].puntosAtaque += 6;
+                            mascotasJugador[numero + 1].puntosVida += 3;
+                            verificar = true;
+                            break;
+                    }
 
-            }
-        } while (verificar != true);
+                }
+            } while (verificar != true);
+        }
         return mascotasJugador;
     }
 }

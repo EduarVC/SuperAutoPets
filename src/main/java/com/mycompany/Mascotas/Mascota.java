@@ -68,12 +68,9 @@ public class Mascota {
         return puntosAtaque += ataque;
     }
 
-    public void Alimentarce() {
-
-    }
 
     public Mascota RecivirDaño(Mascota mascotaAtacada, int daño) {
-        mascotaAtacada.puntosVida += daño;
+        mascotaAtacada.puntosVida -= daño;
         return mascotaAtacada;
     }
 
@@ -85,7 +82,7 @@ public class Mascota {
 
     }
 
-    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad) {
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad, Mascota[] mascotasEnemigo) {
 
         return mascotasJugador;
     }

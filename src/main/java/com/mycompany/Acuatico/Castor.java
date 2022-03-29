@@ -29,7 +29,7 @@ public class Castor extends Mascota {
     //metodo especial
 
     @Override
-    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad) {
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad, Mascota [] mascotasEnemigo) {
         Mascota espacioLibre = new espacioVacio();
         int contador = 0;
         if (vendido != false) {
@@ -48,7 +48,7 @@ public class Castor extends Mascota {
                         contador++;
                     }
                 }
-            } while (vendido == false);
+            } while (contador != 2);
         }
         return mascotasJugador;
     }

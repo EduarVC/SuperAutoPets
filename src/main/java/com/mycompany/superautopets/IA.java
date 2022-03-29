@@ -92,7 +92,7 @@ public class IA extends Personaje {
         System.out.println("______________________");
         System.out.println("\nMascotas Del Enemigo\n");
         for (int i = 0; i < mascotasObtenidas.length; i++) {
-            System.out.println(String.format("Mascota %d", (i+1)));
+            System.out.println(String.format("\nMascota %d", (i+1)));
             System.out.println(mascotasObtenidas[i]);
         }
         

@@ -25,6 +25,7 @@ public class AlimentarMascota {
         mascotaSeleccionda.alimento = true;
         return mascotaSeleccionda;
     }
+
     //se aplican los efectos de los alimentos durante la pelea 
     public Mascota efectosAlimento(Mascota mascotaJugador, Mascota mascotaEnemigo) {
         if ("Naranja".equals(mascotaJugador.nombreAlimento)) {
@@ -34,7 +35,7 @@ public class AlimentarMascota {
                 mascotaJugador = ((Miel) alimentar).devolverMascota();
             }
         }
-        mascotaJugador.alimento = true;
+
         return mascotaJugador;
     }
 

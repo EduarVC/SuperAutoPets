@@ -5,7 +5,7 @@ import com.mycompany.Mascotas.espacioVacio;
 
 public class Pescado extends Mascota {
 
-    private boolean habilidadAplicada = true;
+    private boolean habilidadAplicada = false;
 
     public Pescado() {
         nombreMascota = "Pescado";
@@ -26,23 +26,21 @@ public class Pescado extends Mascota {
     }
 
     @Override
-    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad) {
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad, Mascota  [] mascotasEnemigo) {
         Mascota espacioLibre = new espacioVacio();
         for (int i = 0; i < mascotasJugador.length; i++) {
             if (mascotasJugador[i] != espacioLibre) {
                 if (mascotaHabilidad.cantidadFusionados == 2 && habilidadAplicada == false) {
                     mascotasJugador[i].puntosAtaque += 1;
                     mascotasJugador[i].puntosVida += 1;
-                    habilidadAplicada = true;
+
                 } else if (mascotaHabilidad.cantidadFusionados == 5 && habilidadAplicada == true) {
                     mascotasJugador[i].puntosAtaque += 2;
                     mascotasJugador[i].puntosVida += 2;
-                    habilidadAplicada = false;
                 }
             }
-
         }
-
+        habilidadAplicada = !habilidadAplicada;
         return mascotasJugador;
     }
 }
