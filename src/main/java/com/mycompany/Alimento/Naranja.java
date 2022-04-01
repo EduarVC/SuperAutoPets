@@ -1,7 +1,5 @@
 package com.mycompany.Alimento;
 
-import com.mycompany.Efecto.Efecto;
-import com.mycompany.Mascotas.Mascota;
 
 public class Naranja extends Alimento {
     public Naranja() {

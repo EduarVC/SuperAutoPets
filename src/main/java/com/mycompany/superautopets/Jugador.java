@@ -371,6 +371,7 @@ public class Jugador extends Personaje {
                             if (mascotasJugador[posicionMascotaJugador - 1].nivel < 3 && mascotasJugador[posicionMascotaJugador2 - 1].nivel < 3) {
                                 System.out.println("\nMascota Fucionada Exitosamente.");
                                 mascotasJugador[posicionMascotaJugador2 - 1].establecerNivelMascota(fucion.Fusionarse(1));
+                                mascotasJugador[posicionMascotaJugador2 - 1].cantidadFusionados += 1;
                                 mascotasJugador[posicionMascotaJugador2 - 1].aumentarVida(1);
                                 mascotasJugador[posicionMascotaJugador2 - 1].aumentarAtaque(1);
                                 mascotasJugador[posicionMascotaJugador - 1] = espacioLibre;

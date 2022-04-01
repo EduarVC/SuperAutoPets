@@ -1,7 +1,6 @@
 package com.mycompany.superautopets;
 
 import static com.mycompany.superautopets.Modos.ModoCreativo;
-import static com.mycompany.superautopets.Modos.ModoVersus;
 import static com.mycompany.superautopets.Reportes.Reportes;
 import java.util.Scanner;
 
@@ -57,7 +56,7 @@ public class MenuPrincipal {
                 tipoModo.ModoArena();
                 break;
             case 2:
-                ModoVersus();
+                tipoModo.ModoVersus();
                 break;
             case 3:
                 ModoCreativo();

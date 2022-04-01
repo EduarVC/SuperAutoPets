@@ -27,7 +27,6 @@ public class Mosquito extends Mascota {
     @Override
     public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad, Mascota [] mascotasEnemigo) {
         Mascota espacioLibre = new espacioVacio();
-        Modos mascotaEnemigo = new Modos();
         int contador = 0;
         int numeroAnterior1 = 0;
         int numeroAnterior2 = 0;

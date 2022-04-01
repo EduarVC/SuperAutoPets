@@ -31,6 +31,7 @@ public class Modos {
     private Combate inicioCombate;
     private Combate datosCombate;
     public Mascota espacioLibre;
+    private int accion;
     private AlimentarMascota efectosMascota;
     private Mascota [] guardarMascotasJugador;
 
@@ -47,7 +48,7 @@ public class Modos {
 
     //se inicia el modo arrena
     public void ModoArena() {
-        int accion;
+        
 
         System.out.println("\nModo Arena\n");
         campo = obtenerCampo();
@@ -59,29 +60,36 @@ public class Modos {
                 System.out.println(String.format("\nTienes %d Monedas de Oro", jugador.monedasOro));
                 System.out.println(String.format("Vida: %d", jugador.vidaJugador));
                 accion = new MenuEntreClases().MenuEntreClases(ronda);
-                if (accion == 1) {
-                    if (ronda == 1) {
-                        System.out.println("\nBienvenido a la tienda de mascotas");
-                        System.out.println("_____Crea tu propio equipo_____");
-                    } else {
-                        System.out.println("\nTienda de Mascotas");
-                    }
-                    nuevaTienda.ImprimirMascotasTienda(mascotasTienda);
-                    mascotasJugador = jugador.ComprarMascotas(mascotasTienda);
-                } else if (accion == 2) {
-                    System.out.println("_________________________");
-                    System.out.println("\nAlimentos disponibles: ");
-                    mascotasJugador = jugador.ComprarAlimentos(nuevoAlimento, mascotasJugador, mascotasTienda);
-                } else if (accion == 3) {
-                    System.out.println("_________________________________");
-                    System.out.println("\nOrdene sus mascotas como desee.");
-                    mascotasJugador = jugador.OrdenarMascotas(mascotasJugador);
-                } else if (accion == 4) {
-                    mascotasJugador = jugador.FucionarMascotas(mascotasTienda, mascotasJugador, mascotasIA);
-                } else if (accion == 5) {
-                    System.out.println("_________________________________");
-                    System.out.println("\nVenda la mascota que desees y obtenga monedas de oro segun el nivel de su mascota");
-                    mascotasJugador = jugador.VenderMascotas(mascotasJugador, mascotasIA);
+                switch (accion) {
+                    case 1:
+                        if (ronda == 1) {
+                            System.out.println("\nBienvenido a la tienda de mascotas");
+                            System.out.println("_____Crea tu propio equipo_____");
+                        } else {
+                            System.out.println("\nTienda de Mascotas");
+                        }   nuevaTienda.ImprimirMascotasTienda(mascotasTienda);
+                        mascotasJugador = jugador.ComprarMascotas(mascotasTienda);
+                        break;
+                    case 2:
+                        System.out.println("_________________________");
+                        System.out.println("\nAlimentos disponibles: ");
+                        mascotasJugador = jugador.ComprarAlimentos(nuevoAlimento, mascotasJugador, mascotasTienda);
+                        break;
+                    case 3:
+                        System.out.println("_________________________________");
+                        System.out.println("\nOrdene sus mascotas como desee.");
+                        mascotasJugador = jugador.OrdenarMascotas(mascotasJugador);
+                        break;
+                    case 4:
+                        mascotasJugador = jugador.FucionarMascotas(mascotasTienda, mascotasJugador, mascotasIA);
+                        break;
+                    case 5:
+                        System.out.println("_________________________________");
+                        System.out.println("\nVenda la mascota que desees y obtenga monedas de oro segun el nivel de su mascota");
+                        mascotasJugador = jugador.VenderMascotas(mascotasJugador, mascotasIA);
+                        break;
+                    default:
+                        break;
                 }
             } while (accion != 6);
             mascotasIA = enemigo.obtenreMascotasIA(ronda);
@@ -100,17 +108,56 @@ public class Modos {
         }
     }
 
-    public static void ModoVersus() {
-
+    public void ModoVersus() {
+        System.out.println("______________________");
+        System.out.println("------Modo Versus-----");
+        campo = obtenerCampo();
+        while (jugador.estaVivo()) {
+            mascotasTienda = nuevaTienda.mascotasTienda(ronda);
+            nuevoAlimento = nuevaTienda.alimentosTienda(ronda);
+            do {
+                System.out.println("_________________________");
+                System.out.println(String.format("\nTienes %d Monedas de Oro", jugador.monedasOro));
+                System.out.println(String.format("Vida: %d", jugador.vidaJugador));
+                accion = new MenuEntreClases().MenuEntreClases(ronda);
+                switch (accion) {
+                    case 1:
+                        if (ronda == 1) {
+                            System.out.println("\nBienvenido a la tienda de mascotas");
+                            System.out.println("_____Crea tu propio equipo_____");
+                        } else {
+                            System.out.println("\nTienda de Mascotas");
+                        }   nuevaTienda.ImprimirMascotasTienda(mascotasTienda);
+                        mascotasJugador = jugador.ComprarMascotas(mascotasTienda);
+                        break;
+                    case 2:
+                        System.out.println("_________________________");
+                        System.out.println("\nAlimentos disponibles: ");
+                        mascotasJugador = jugador.ComprarAlimentos(nuevoAlimento, mascotasJugador, mascotasTienda);
+                        break;
+                    case 3:
+                        System.out.println("_________________________________");
+                        System.out.println("\nOrdene sus mascotas como desee.");
+                        mascotasJugador = jugador.OrdenarMascotas(mascotasJugador);
+                        break;
+                    case 4:
+                        mascotasJugador = jugador.FucionarMascotas(mascotasTienda, mascotasJugador, mascotasIA);
+                        break;
+                    case 5:
+                        System.out.println("_________________________________");
+                        System.out.println("\nVenda la mascota que desees y obtenga monedas de oro segun el nivel de su mascota");
+                        mascotasJugador = jugador.VenderMascotas(mascotasJugador, mascotasIA);
+                        break;
+                    default:
+                        break;
+                }
+            } while (accion != 6);
+            
+        }
     }
 
     public static void ModoCreativo() {
 
-    }
-
-    public IA crearEnemigo() {
-
-        return new IA();
     }
 
     //Metodo para obtener el campo
