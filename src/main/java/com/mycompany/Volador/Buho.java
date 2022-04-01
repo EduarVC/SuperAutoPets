@@ -14,8 +14,5 @@ public class Buho extends Mascota{
         nivel = 1;
     }
 
-//    public Buho(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
-//        super("Buho", "Suerte-amigos", 3, 5, 1);
-//    }
     
 }

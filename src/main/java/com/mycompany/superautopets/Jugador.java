@@ -103,6 +103,7 @@ public class Jugador extends Personaje {
                                 for (int j = 0; j < mascotasObtenidas.length; j++) {
                                     if("Nutria".equals(mascotasObtenidas[i].nombreMascota)){
                                         mascotasObtenidas = verificarMascota.verificarHabilidad(mascotasObtenidas, 1,mascotasTienda);
+                                        break;
                                     }
                                 }  
                                 mascotasTiendaDisponibles.mascotasTienda = mascotasTienda;

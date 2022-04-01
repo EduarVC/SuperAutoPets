@@ -35,20 +35,26 @@ public class Nutria extends Mascota {
 
             switch (mascotaHabilidad.nivel) {
                 case 1:
+                    if(mascotasJugador[numero-1] == espacioLibre){
                     mascotasJugador[numero - 1].puntosAtaque += 1;
                     mascotasJugador[numero - 1].puntosVida += 1;
                     System.out.println("\nHabilidad de la Nutria aplicada.");
                     break;
+                    }
                 case 2:
+                    if(mascotasJugador[numero-1] == espacioLibre){
                     mascotasJugador[numero - 1].puntosAtaque += 2;
                     mascotasJugador[numero - 1].puntosVida += 2;
                     System.out.println("\nHabilidad de la Nutria aplicada.");
                     break;
+                    }
                 case 3:
+                if(mascotasJugador[numero-1] == espacioLibre){
                     mascotasJugador[numero - 1].puntosAtaque += 3;
                     mascotasJugador[numero - 1].puntosVida += 3;
                     System.out.println("\nHabilidad de la Nutria aplicada.");
                     break;
+                    }
                 default:
                     break;
             }
