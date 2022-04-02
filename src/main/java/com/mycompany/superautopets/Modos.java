@@ -109,6 +109,7 @@ public class Modos {
     }
 
     public void ModoVersus() {
+        LecturaEscrituraArchivo escritura = new LecturaEscrituraArchivo();
         System.out.println("______________________");
         System.out.println("------Modo Versus-----");
         campo = obtenerCampo();
@@ -152,6 +153,7 @@ public class Modos {
                         break;
                 }
             } while (accion != 6);
+            escritura.EscrituraArchivo(mascotasJugador, campo);
             
         }
     }
