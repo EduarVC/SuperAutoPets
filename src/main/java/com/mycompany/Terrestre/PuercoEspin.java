@@ -28,7 +28,13 @@ public class PuercoEspin extends Mascota{
         Mascota espacioLibre = new espacioVacio();
         for (int i = 0; i < mascotasJugador.length; i++) {
              if(mascotasJugador[i] !=espacioLibre){
-                 mascotasJugador[i].puntosVida -=1;
+                 if(mascotaHabilidad.nivel == 1){
+                 mascotasJugador[i].puntosVida -=2;
+             }else if(mascotaHabilidad.nivel == 2){
+                 mascotasJugador[i].puntosVida -=4;
+             }else if(mascotaHabilidad.nivel == 3){
+                 mascotasJugador[i].puntosVida -=6;
+             }
              }
          }
          System.out.println("\nHabilidad del Puerco Espin aplicada.");

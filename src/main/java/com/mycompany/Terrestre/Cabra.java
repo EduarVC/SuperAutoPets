@@ -1,12 +1,30 @@
 package com.mycompany.Terrestre;
 
 import com.mycompany.Mascotas.Mascota;
-import com.mycompany.Clasificacion.Terrestre;
+import com.mycompany.superautopets.AlimentarMascota;
 
-public class Cabra{
+public class Cabra extends Mascota{
 
-//    public Cabra(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque) {
-//        super(nombreMascota, habilidad, puntosVida, puntosAtaque);
-//    }
-    
+    public Cabra() {
+        nombreMascota = "Tortuga";
+        habilidad = "Proteccion aliada";
+        puntosAtaque = 1;
+        puntosVida = 2;
+        experiencia = 1;
+        nivel = 1;
+        cantidadFusionados = 0;
+        tipoMascota = new String[2];
+        tipoMascota[0] = "Reptil";
+        efecto = false;
+        alimento = false;
+        nombreAlimento = "Sin Alimentar";
+        nombreEfecto = "Sin Efecto";
+        dañoRecivido = 0;
+    }
+     @Override
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad, Mascota[] mascotasEnemigo) {
+        
+        return mascotasJugador;
+    }
+
 }

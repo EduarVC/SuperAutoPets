@@ -33,7 +33,7 @@ public class Modos {
     public Mascota espacioLibre;
     private int accion;
     private AlimentarMascota efectosMascota;
-    private Mascota [] guardarMascotasJugador;
+    private Mascota[] guardarMascotasJugador;
 
     //constructor de la clase
     public Modos() {
@@ -48,7 +48,6 @@ public class Modos {
 
     //se inicia el modo arrena
     public void ModoArena() {
-        
 
         System.out.println("\nModo Arena\n");
         campo = obtenerCampo();
@@ -67,7 +66,8 @@ public class Modos {
                             System.out.println("_____Crea tu propio equipo_____");
                         } else {
                             System.out.println("\nTienda de Mascotas");
-                        }   nuevaTienda.ImprimirMascotasTienda(mascotasTienda);
+                        }
+                        nuevaTienda.ImprimirMascotasTienda(mascotasTienda);
                         mascotasJugador = jugador.ComprarMascotas(mascotasTienda);
                         break;
                     case 2:
@@ -92,6 +92,7 @@ public class Modos {
                         break;
                 }
             } while (accion != 6);
+            mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 9, mascotasIA);
             mascotasIA = enemigo.obtenreMascotasIA(ronda);
             enemigo.ImprimirMascotasIA(mascotasIA);
             System.out.println("\nPrecione enter para continuar...");
@@ -128,7 +129,8 @@ public class Modos {
                             System.out.println("_____Crea tu propio equipo_____");
                         } else {
                             System.out.println("\nTienda de Mascotas");
-                        }   nuevaTienda.ImprimirMascotasTienda(mascotasTienda);
+                        }
+                        nuevaTienda.ImprimirMascotasTienda(mascotasTienda);
                         mascotasJugador = jugador.ComprarMascotas(mascotasTienda);
                         break;
                     case 2:
@@ -154,7 +156,7 @@ public class Modos {
                 }
             } while (accion != 6);
             escritura.EscrituraArchivo(mascotasJugador, campo);
-            
+
         }
     }
 
@@ -209,7 +211,7 @@ public class Modos {
         Mascota guardaMascotaJugador;
         Mascota guardaMascotaIA;
         Alimento tipoAlimento = new Alimento();
-        
+
         mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 4, mascotasIA);
         System.out.println("______________________");
         System.out.println("\nInicio del combate.");
@@ -219,6 +221,7 @@ public class Modos {
             for (int i = 0; i < mascotasJugador.length; i++) {
                 if (mascotasJugador[i] != espacioLibre && mascotasJugador[i].puntosVida > 0) {
                     guardaMascotaJugador = mascotasJugador[i];
+                    mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 2, mascotasIA);
                     posicionMascotaJugador = i;
                     break;
                 }
@@ -241,7 +244,9 @@ public class Modos {
                 mascotasIA[posicionMascotaEnemigo] = guardaMascotaIA;
                 mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 7, mascotasIA);
                 mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 6, mascotasIA);
-
+                mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 8, mascotasIA);
+                System.out.println(String.format("\nLa mascota %s de tu equipo recivio %d de daño", mascotasJugador[posicionMascotaJugador].nombreMascota, mascotasIA[posicionMascotaEnemigo].puntosAtaque));
+                System.out.println(String.format("\nLa mascota %s del enemigo recivio %d de daño", mascotasIA[posicionMascotaEnemigo].nombreMascota, mascotasJugador[posicionMascotaJugador].puntosAtaque));
                 if (guardaMascotaJugador.puntosVida < 1) {
                     mascotasJugador[posicionMascotaJugador] = espacioLibre;
                     System.out.println(String.format("\nMascota %s del jugador a muerto", guardaMascotaJugador.nombreMascota));
@@ -257,19 +262,19 @@ public class Modos {
                 System.out.println("\nPreciones Enter para continuar...");
                 entrada.nextLine();
             }
-            
+
         } while (guardaMascotaJugador != espacioLibre && guardaMascotaIA != espacioLibre);
-        if(guardaMascotaIA == espacioLibre && guardaMascotaJugador == espacioLibre){
+        mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 10, mascotasIA);
+        if (guardaMascotaIA == espacioLibre && guardaMascotaJugador == espacioLibre) {
             System.out.println("\nEn esta batalla quedaron Empates");
-        }
-        else if(guardaMascotaIA == espacioLibre){
+        } else if (guardaMascotaIA == espacioLibre) {
             System.out.println("\nHas gando esta batalla");
-            jugador.cantidadVictorias ++;
-            enemigo.cantidadDerrotas ++;
-        }else if(guardaMascotaJugador == espacioLibre){
+            jugador.cantidadVictorias++;
+            enemigo.cantidadDerrotas++;
+        } else if (guardaMascotaJugador == espacioLibre) {
             System.out.println("\nHas perdido esta batalla");
-            enemigo.cantidadVictorias ++;
-            jugador.cantidadDerrotas ++;
+            enemigo.cantidadVictorias++;
+            jugador.cantidadDerrotas++;
             jugador.restarVida(ronda);
         }
     }

@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Jugador extends Personaje {
 
     static Scanner entrada = new Scanner(System.in);
-    Verificar verificarMascota= new Verificar();
+    Verificar verificarMascota = new Verificar();
     private Tienda datosTienda;
     protected int vidaJugador;
     public int monedasOro;
@@ -100,12 +100,13 @@ public class Jugador extends Personaje {
 
                                 System.out.println("Mascota Obtenida\n");
                                 monedasOro = RestarMonedas(3);
+                                mascotasObtenidas = verificarMascota.verificarHabilidad(mascotasObtenidas, 1, mascotasTienda);
                                 for (int j = 0; j < mascotasObtenidas.length; j++) {
-                                    if("Nutria".equals(mascotasObtenidas[i].nombreMascota)){
-                                        mascotasObtenidas = verificarMascota.verificarHabilidad(mascotasObtenidas, 1,mascotasTienda);
+                                    if ("Nutria".equals(mascotasObtenidas[i].nombreMascota)) {
+                                        mascotasObtenidas = verificarMascota.verificarHabilidad(mascotasObtenidas, 1, mascotasTienda);
                                         break;
                                     }
-                                }  
+                                }
                                 mascotasTiendaDisponibles.mascotasTienda = mascotasTienda;
                                 break;
                             }
@@ -148,7 +149,7 @@ public class Jugador extends Personaje {
     }
 
     //Metodo para comprar Alimento
-    public Mascota[] ComprarAlimentos(Alimento[] alimentosTienda, Mascota[] mascotasEquipo, Mascota [] mascotasTienda) {
+    public Mascota[] ComprarAlimentos(Alimento[] alimentosTienda, Mascota[] mascotasEquipo, Mascota[] mascotasTienda) {
         AlimentarMascota alimentarMascota = new AlimentarMascota();
         Tienda alimentos = new Tienda();
         int opcion;
@@ -243,7 +244,7 @@ public class Jugador extends Personaje {
     }
 
     //Metodo para vender las mascotas del Jugador
-    public Mascota[] VenderMascotas(Mascota[] mascotasJugador, Mascota [] mascotaEnemigo) {
+    public Mascota[] VenderMascotas(Mascota[] mascotasJugador, Mascota[] mascotaEnemigo) {
         int mascotaVenta;
         Modos mandarDatos = new Modos();
 
@@ -266,11 +267,11 @@ public class Jugador extends Personaje {
                         case 0:
                         case 1:
                             monedasOro = SumarMonedas(1);
-                            mascotasJugador = verificarMascota.aplicarHabilidadVendidos(mascotasJugador, mascotasJugador[mascotaVenta-1], mascotaEnemigo);
+                            mascotasJugador = verificarMascota.aplicarHabilidadVendidos(mascotasJugador, mascotasJugador[mascotaVenta - 1], mascotaEnemigo);
                             mascotasJugador[mascotaVenta - 1] = espacioLibre;
                             System.out.println("\nMascota vendida exitosamente...");
                             System.out.println("Has recivido 1 moneda de oro.");
-                            
+
                             break;
                         case 2:
                         case 3:
@@ -279,14 +280,14 @@ public class Jugador extends Personaje {
                             mascotasJugador[mascotaVenta - 1] = espacioLibre;
                             System.out.println("\nMascota vendida exitosamente...");
                             System.out.println("Has recivido 2 moneda de oro.");
-                             mascotasJugador = verificarMascota.aplicarHabilidadVendidos(mascotasJugador, mascotasJugador[mascotaVenta-1], mascotaEnemigo);
+                            mascotasJugador = verificarMascota.aplicarHabilidadVendidos(mascotasJugador, mascotasJugador[mascotaVenta - 1], mascotaEnemigo);
                             break;
                         case 5:
                             monedasOro = SumarMonedas(3);
                             mascotasJugador[mascotaVenta - 1] = espacioLibre;
                             System.out.println("\nMascota vendida exitosamente...");
                             System.out.println("Has recivido 3 moneda de oro.");
-                            mascotasJugador = verificarMascota.aplicarHabilidadVendidos(mascotasJugador, mascotasJugador[mascotaVenta-1], mascotaEnemigo);
+                            mascotasJugador = verificarMascota.aplicarHabilidadVendidos(mascotasJugador, mascotasJugador[mascotaVenta - 1], mascotaEnemigo);
                             break;
                     }
                     System.out.println(String.format("Tienes %d monedas de Oro", monedasOro));
@@ -338,7 +339,7 @@ public class Jugador extends Personaje {
         return mascotasOrdenadas;
     }
 
-    public Mascota[] FucionarMascotas(Mascota[] mascotasTienda, Mascota[] mascotasJugador, Mascota [] mascotasEnemigo) {
+    public Mascota[] FucionarMascotas(Mascota[] mascotasTienda, Mascota[] mascotasJugador, Mascota[] mascotasEnemigo) {
         Mascota fucion = new Mascota();
         Modos mascotaTienda = new Modos();
         int posicionMascotaTienda;
@@ -422,7 +423,7 @@ public class Jugador extends Personaje {
                             mascotasJugador[posicionMascotaJugador - 1].aumentarAtaque(1);
                             mascotasTienda[posicionMascotaTienda - 1] = espacioLibre;
                             mascotaTienda.mascotasTienda = mascotasTienda;
-                            mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 5, mascotasEnemigo); 
+                            mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 5, mascotasEnemigo);
                             System.out.println("Precione Enter para continuar fucionando.");
                             System.out.println("Ingrese 1 para regresar al menú anterior.");
                             entrada.nextLine();
@@ -466,7 +467,8 @@ public class Jugador extends Personaje {
     public int SumarMonedas(int monedasObtenidas) {
         return monedasOro += monedasObtenidas;
     }
-    public int restarVida(int ronda){
+
+    public int restarVida(int ronda) {
         switch (ronda) {
             case 1:
             case 2:
@@ -482,12 +484,13 @@ public class Jugador extends Personaje {
                 vidaJugador -= 3;
                 break;
         }
-        if (vidaJugador < 1){
+        if (vidaJugador < 1) {
             estaVivo = false;
         }
         return vidaJugador;
     }
-    public boolean estaVivo(){
+
+    public boolean estaVivo() {
         return estaVivo;
     }
 

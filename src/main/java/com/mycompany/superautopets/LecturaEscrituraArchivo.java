@@ -6,13 +6,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class LecturaEscrituraArchivo {
 
     static Scanner entrada;
-
+    Mascota [] mascotasObtenidas;
     public LecturaEscrituraArchivo() {
         entrada = new Scanner(System.in);
     }
@@ -38,5 +36,9 @@ public class LecturaEscrituraArchivo {
         } catch (FileNotFoundException ex) {
             System.out.println("El archivo que ingreseo no existe.");
         }
+    }
+    public Mascota [] LecturaArchivos(){
+        
+        return mascotasObtenidas;
     }
 }
