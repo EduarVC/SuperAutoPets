@@ -67,6 +67,7 @@ public class Jugador extends Personaje {
     //metodo para obtener a las macotas que el jugador desee en su equipo 
     public Mascota[] ComprarMascotas(Mascota[] mascotasTienda) {
         Modos mascotasTiendaDisponibles = new Modos();
+        espacioDisponible = true;
         int numOpcion;
         int opcion;
 

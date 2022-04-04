@@ -10,10 +10,21 @@ public class Foca extends Mascota{
         puntosAtaque = 3;
         puntosVida = 8;
         experiencia = 1;
+        nivel = 1;
+        cantidadFusionados = 0;
+        tipoMascota = new String[2];
+        tipoMascota[0] = "Insecto";
+        tipoMascota[1] = "Terrestre";
+        efecto = false;
+        alimento = false;
+        nombreAlimento = "Sin Alimentar";
+        nombreEfecto = "Sin Efecto";
+        dañoRecivido = 0;
     }
-    
-//    public Foca(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
-//        super("Foca", "Compartir-Poder", 8, 3,1);
-//    }
+     @Override
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad, Mascota[] mascotasEnemigo) {
+        
+    return mascotasJugador;
+    }
     
 }

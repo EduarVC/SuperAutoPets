@@ -12,6 +12,16 @@ public class Camello extends Mascota {
         puntosAtaque = 2;
         puntosVida = 5;
         experiencia = 1;
+        nivel = 1;
+        cantidadFusionados = 0;
+        tipoMascota = new String[2];
+        tipoMascota[0] = "Mamifer";
+        tipoMascota[1] = "Desertico";
+        efecto = false;
+        alimento = false;
+        nombreAlimento = "Sin Alimentar";
+        nombreEfecto = "Sin Efecto";
+        dañoRecivido = 0;
     }
 
     @Override

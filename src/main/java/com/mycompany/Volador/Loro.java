@@ -11,10 +11,21 @@ public class Loro extends Mascota{
         puntosAtaque = 5;
         puntosVida = 3;
         experiencia = 1;
+        nivel = 1;
+        cantidadFusionados = 0;
+        tipoMascota = new String[2];
+        tipoMascota[0] = "Insecto";
+        tipoMascota[1] = "Terrestre";
+        efecto = false;
+        alimento = false;
+        nombreAlimento = "Sin Alimentar";
+        nombreEfecto = "Sin Efecto";
+        dañoRecivido = 0;
     }
-
-//    public Loro(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
-//        super("Loro", "Copia", 3, 5, 1);
-//    }
+ @Override
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad, Mascota[] mascotasEnemigo) {
+        
+    return mascotasJugador;
+    }
     
 }

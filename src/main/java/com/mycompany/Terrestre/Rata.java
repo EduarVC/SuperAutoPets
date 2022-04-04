@@ -11,6 +11,16 @@ public class Rata extends Mascota{
         puntosAtaque = 4;
         puntosVida = 5;
         experiencia = 1;
+        nivel = 1;
+        cantidadFusionados = 0;
+        tipoMascota = new String[2];
+        tipoMascota[0] = "Solitario";
+        tipoMascota[1] = "Terrestre";
+        efecto = false;
+        alimento = false;
+        nombreAlimento = "Sin Alimentar";
+        nombreEfecto = "Sin Efecto";
+        dañoRecivido = 0;
     }
 
     @Override

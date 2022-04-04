@@ -28,8 +28,6 @@ public class Modos {
     private Alimento[] nuevoAlimento;
     private Mascota mandarTienda;
     Verificar verificarMascota;
-    private Combate inicioCombate;
-    private Combate datosCombate;
     public Mascota espacioLibre;
     private int accion;
     private AlimentarMascota efectosMascota;
@@ -104,8 +102,8 @@ public class Modos {
             guardarMascotasJugador = mascotasJugador;
             inicioCombate();
             ronda++;
-            mascotasJugador = guardarMascotasJugador;
             jugador.monedasOro = 10;
+            mascotasJugador = guardarMascotasJugador;
         }
     }
 
@@ -204,7 +202,8 @@ public class Modos {
     }
 
     public void inicioCombate() {
-
+        Mascota [] mascotasJugadorP;
+        mascotasJugadorP = mascotasJugador;
         int contador = 0;
         int posicionMascotaJugador = 0;
         int posicionMascotaEnemigo = 0;
@@ -212,43 +211,48 @@ public class Modos {
         Mascota guardaMascotaIA;
         Alimento tipoAlimento = new Alimento();
 
-        mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 4, mascotasIA);
+        mascotasJugadorP = verificarMascota.verificarHabilidad(mascotasJugadorP, 4, mascotasIA);//Ejecuta las habilidades de las macotas Correspondientes
         System.out.println("______________________");
         System.out.println("\nInicio del combate.");
+        
         do {
             guardaMascotaJugador = espacioLibre;
             guardaMascotaIA = espacioLibre;
-            for (int i = 0; i < mascotasJugador.length; i++) {
-                if (mascotasJugador[i] != espacioLibre && mascotasJugador[i].puntosVida > 0) {
-                    guardaMascotaJugador = mascotasJugador[i];
-                    mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 2, mascotasIA);
-                    posicionMascotaJugador = i;
+            //Buscamos a la mascota para pelear entre las mascotas del Jugador
+            for (int i = 0; i < mascotasJugadorP.length; i++) {
+                if (mascotasJugadorP[i] != espacioLibre && mascotasJugadorP[i].puntosVida > 0) {
+                    guardaMascotaJugador = mascotasJugadorP[i];//Guardamos a la mascota seleccionada
+                    mascotasJugadorP = verificarMascota.verificarHabilidad(mascotasJugadorP, 2, mascotasIA);//Ejecutamos las habilidades de las mascotas Correspondientes 
+                    posicionMascotaJugador = i;//Guardamos la posicion de la mascota
                     break;
                 }
             }
+            //Buscamos a la mascota para pelear entre las mascotas del enemigo
             for (int i = 0; i < mascotasIA.length; i++) {
                 if (mascotasIA[i] != espacioLibre && mascotasIA[i].puntosVida > 0) {
-                    guardaMascotaIA = mascotasIA[i];
-                    posicionMascotaEnemigo = i;
+                    guardaMascotaIA = mascotasIA[i]; // Guardamos a la mascota seleccionda
+                    posicionMascotaEnemigo = i;// Guardamos la posicion de la mascota seleccionada
                     break;
                 }
             }
-
+            
             if (guardaMascotaJugador != espacioLibre && guardaMascotaIA != espacioLibre) {
-                guardaMascotaIA.RecivirDaño(guardaMascotaIA, guardaMascotaJugador.puntosAtaque);
-                guardaMascotaJugador.RecivirDaño(guardaMascotaJugador, guardaMascotaIA.puntosAtaque);
+                guardaMascotaIA.RecivirDaño(guardaMascotaIA, guardaMascotaJugador.puntosAtaque);// Ejecutamos el metodo del enemigo para recivir el daño 
+                guardaMascotaJugador.RecivirDaño(guardaMascotaJugador, guardaMascotaIA.puntosAtaque);//Ejecutamos el metodo del jugador pata recivir el daño
                 if (guardaMascotaJugador.efecto == true && guardaMascotaJugador.alimento == true) {
-                    efectosMascota.efectosAlimento(guardaMascotaJugador, guardaMascotaIA);
+                    guardaMascotaJugador = efectosMascota.efectosAlimento(guardaMascotaJugador, guardaMascotaIA);//Ejecutamos el metodo para aplicar los efectos de los alimentos
                 }
-                mascotasJugador[posicionMascotaJugador] = guardaMascotaJugador;
+                mascotasJugadorP[posicionMascotaJugador] = guardaMascotaJugador;
                 mascotasIA[posicionMascotaEnemigo] = guardaMascotaIA;
-                mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 7, mascotasIA);
-                mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 6, mascotasIA);
-                mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 8, mascotasIA);
-                System.out.println(String.format("\nLa mascota %s de tu equipo recivio %d de daño", mascotasJugador[posicionMascotaJugador].nombreMascota, mascotasIA[posicionMascotaEnemigo].puntosAtaque));
-                System.out.println(String.format("\nLa mascota %s del enemigo recivio %d de daño", mascotasIA[posicionMascotaEnemigo].nombreMascota, mascotasJugador[posicionMascotaJugador].puntosAtaque));
+                mascotasJugadorP = verificarMascota.verificarHabilidad(mascotasJugadorP, 7, mascotasIA);//Ejecutamos las habilidades de las mascotas Correspondientes 
+                mascotasJugadorP = verificarMascota.verificarHabilidad(mascotasJugadorP, 6, mascotasIA);//Ejecutamos las habilidades de las mascotas Correspondientes 
+                mascotasJugadorP = verificarMascota.verificarHabilidad(mascotasJugadorP, 8, mascotasIA);//Ejecutamos las habilidades de las mascotas Correspondientes 
+                //Mostramos datos correspondientes
+                System.out.println("________________________________________");
+                System.out.println(String.format("\nLa mascota %s de tu equipo recivio %d de daño", mascotasJugadorP[posicionMascotaJugador].nombreMascota, mascotasIA[posicionMascotaEnemigo].puntosAtaque));
+                System.out.println(String.format("La mascota %s del enemigo recivio %d de daño", mascotasIA[posicionMascotaEnemigo].nombreMascota, mascotasJugadorP[posicionMascotaJugador].puntosAtaque));
                 if (guardaMascotaJugador.puntosVida < 1) {
-                    mascotasJugador[posicionMascotaJugador] = espacioLibre;
+                    mascotasJugadorP[posicionMascotaJugador] = espacioLibre;
                     System.out.println(String.format("\nMascota %s del jugador a muerto", guardaMascotaJugador.nombreMascota));
                 } else {
                     System.out.println(String.format("\nMascota %s del jugador sobrevivio \n%s", guardaMascotaJugador.nombreMascota, guardaMascotaJugador));
@@ -261,10 +265,13 @@ public class Modos {
                 }
                 System.out.println("\nPreciones Enter para continuar...");
                 entrada.nextLine();
+                
             }
 
         } while (guardaMascotaJugador != espacioLibre && guardaMascotaIA != espacioLibre);
-        mascotasJugador = verificarMascota.verificarHabilidad(mascotasJugador, 10, mascotasIA);
+        
+        mascotasJugadorP = verificarMascota.verificarHabilidad(mascotasJugadorP, 10, mascotasIA);
+        //Se verifica quien gano la batalla
         if (guardaMascotaIA == espacioLibre && guardaMascotaJugador == espacioLibre) {
             System.out.println("\nEn esta batalla quedaron Empates");
         } else if (guardaMascotaIA == espacioLibre) {

@@ -11,9 +11,9 @@ public class Ajo extends Alimento{
     public Mascota alimentarMascota(Mascota mascotaAlimentda, Mascota mascotaAtaca){
         Mascota daño = new Mascota();
        if(mascotaAlimentda.puntosVida < 2){
-           mascotaAlimentda.RecivirDaño(mascotaAlimentda, 1);
+           mascotaAlimentda = mascotaAlimentda.RecivirDaño(mascotaAlimentda, 1);
        }else {
-           mascotaAlimentda.RecivirDaño(mascotaAlimentda,daño.dañoRecivido(mascotaAtaca)-2 );
+           mascotaAlimentda = mascotaAlimentda.RecivirDaño(mascotaAlimentda,daño.dañoRecivido(mascotaAtaca)-2 );
        }
         return mascotaAlimentda;
     }

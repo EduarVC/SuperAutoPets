@@ -11,10 +11,20 @@ public class Gato extends Mascota{
         puntosAtaque = 4;
         puntosVida = 5;
         experiencia = 1;
+        nivel = 1;
+        cantidadFusionados = 0;
+        tipoMascota = new String[2];
+        tipoMascota[0] = "Insecto";
+        tipoMascota[1] = "Terrestre";
+        efecto = false;
+        alimento = false;
+        nombreAlimento = "Sin Alimentar";
+        nombreEfecto = "Sin Efecto";
+        dañoRecivido = 0;
     }
-    
-//    public Gato(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
-//        super("Gato", "Maullido", 5, 4, 1);
-//    }
-    
+    @Override
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad, Mascota[] mascotasEnemigo) {
+
+        return mascotasJugador;
+    }
 }

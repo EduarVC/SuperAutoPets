@@ -11,10 +11,20 @@ public class Venado extends Mascota{
         puntosAtaque = 1;
         puntosVida = 1;
         experiencia = 1;
+        nivel = 1;
+        cantidadFusionados = 0;
+        tipoMascota = new String[2];
+        tipoMascota[0] = "Mamifero";
+        efecto = false;
+        alimento = false;
+        nombreAlimento = "Sin Alimentar";
+        nombreEfecto = "Sin Efecto";
+        dañoRecivido = 0;
+    }
+     @Override
+    public Mascota[] aplicarHabilidad(Mascota[] mascotasJugador, Mascota mascotaHabilidad, Mascota[] mascotasEnemigo) {
+        
+    return mascotasJugador;
     }
 
-//    public Venado(String nombreMascota, String habilidad, int puntosVida, int puntosAtaque, int experiencia) {
-//        super("Venado", "Venganza", 1, 1, 1);
-//    }
-    
 }

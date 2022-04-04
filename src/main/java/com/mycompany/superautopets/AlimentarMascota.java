@@ -20,6 +20,15 @@ public class AlimentarMascota {
             if ("Manzana".equals(alimento.nombreAlimento)) {
                 mascotaSeleccionda.nombreAlimento = alimento.nombreAlimento;
                 mascotaSeleccionda = ((Manzana) alimentar).darAlimento(mascotaSeleccionda);
+            }else if("Pastelillo".equals(alimento.nombreAlimento)){
+                mascotaSeleccionda.nombreAlimento = alimento.nombreAlimento;
+                mascotaSeleccionda = ((Pastelillo) alimentar).alimentarMascota(mascotaSeleccionda);
+            }else if("Pastilla para dormir".equals(alimento.nombreAlimento)){
+                mascotaSeleccionda.nombreAlimento = alimento.nombreAlimento;
+                mascotaSeleccionda = ((PastillaParaDormir) alimentar).alimentarMascota(mascotaSeleccionda);
+            }else if("Pera".equals(alimento.nombreAlimento)){
+                mascotaSeleccionda.nombreAlimento = alimento.nombreAlimento;
+                mascotaSeleccionda = ((Pera) alimentar).alimentarMascota(mascotaSeleccionda);
             }
         }
         mascotaSeleccionda.alimento = true;
@@ -34,13 +43,19 @@ public class AlimentarMascota {
             if (mascotaJugador.puntosVida < 1) {
                 mascotaJugador = ((Miel) alimentar).devolverMascota();
             }
+        }else if("Hueso de carne".equals(mascotaJugador.nombreAlimento)){
+            mascotaJugador = ((HuesoDeCarne) alimentar).alimentarMascota(mascotaEnemigo);
+        }else if("Ajo".equals(mascotaJugador.nombreAlimento)){
+            mascotaJugador = ((Ajo) alimentar).alimentarMascota(mascotaJugador, mascotaEnemigo);
         }
 
         return mascotaJugador;
     }
 
     public Mascota[] darAlimentoAleatorio(Mascota[] mascotasJugador, Alimento alimento) {
-        // if(alimento.nombreAlimento == "")
+        if("Ensalada".equals(alimento.nombreAlimento)){
+        mascotasJugador = ((Ensalada) alimentar).alimentarMascota(mascotasJugador, alimento);
+        }
         return mascotasJugador;
     }
 
